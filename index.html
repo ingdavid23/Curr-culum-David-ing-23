@@ -1,0 +1,3463 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículum Programador</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #252540 100%);
+      color: #e0e0e0;
+      overflow-x: hidden;
+      min-height: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      position: relative;
+    }
+
+    /* Animated background particles - Stars */
+    .particle {
+      position: fixed;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Different star sizes */
+    .particle.small {
+      width: 2px;
+      height: 2px;
+      animation: twinkle 3s infinite, float 25s infinite linear;
+    }
+
+    .particle.medium {
+      width: 3px;
+      height: 3px;
+      animation: twinkle 4s infinite, float 30s infinite linear;
+    }
+
+    .particle.large {
+      width: 4px;
+      height: 4px;
+      animation: twinkle 5s infinite, float 35s infinite linear;
+    }
+
+    /* Twinkling animation */
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-120%) translateX(100px) rotate(360deg);
+      }
+    }
+
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 15px 50px rgba(102, 126, 234, 0.5);
+    }
+
+    .name {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .title {
+      font-size: 24px;
+      color: #a0a0a0;
+      margin: 0 0 20px 0;
+      font-weight: 300;
+    }
+
+    .bio {
+      font-size: 16px;
+      color: #c0c0c0;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Section Styles */
+    .section {
+      margin-bottom: 60px;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.4s; }
+    .section:nth-child(4) { animation-delay: 0.6s; }
+    .section:nth-child(5) { animation-delay: 0.8s; }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+
+    /* Experience Cards */
+    .experience-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .experience-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(102, 126, 234, 0.5);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    }
+
+    .experience-card:hover::before {
+      opacity: 1;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .experience-role {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .experience-period {
+      font-size: 14px;
+      color: #667eea;
+      font-weight: 500;
+    }
+
+    .experience-company {
+      font-size: 16px;
+      color: #a0a0a0;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .experience-description {
+      font-size: 14px;
+      color: #c0c0c0;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* About Me Section */
+    .about-container {
+      display: grid;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 35px;
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(102, 126, 234, 0.5);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    }
+
+    .about-card:hover::before {
+      opacity: 1;
+    }
+
+    .about-icon {
+      font-size: 48px;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 15px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .about-content {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-content h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0 0 15px 0;
+    }
+
+    .about-content p {
+      font-size: 15px;
+      color: #c0c0c0;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .about-content strong {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    /* Achievement Highlight Styles */
+    .achievement-highlight {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+      border: 2px solid rgba(102, 126, 234, 0.3);
+    }
+
+    .achievement-highlight:hover {
+      border-color: rgba(102, 126, 234, 0.6);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+    }
+
+    .achievement-icon {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+      }
+    }
+
+    .achievement-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin-top: 15px;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .badge-icon {
+      font-size: 18px;
+    }
+
+    .badge-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    /* Mobile Development Section */
+    .mobile-showcase {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      padding: 40px 0;
+    }
+
+    .mobile-info {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
+    .mobile-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-feature:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: rgba(102, 126, 234, 0.5);
+      transform: translateX(5px);
+    }
+
+    .mobile-feature-icon {
+      font-size: 28px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .mobile-feature-content h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .mobile-feature-content p {
+      margin: 0;
+      font-size: 14px;
+      color: #c0c0c0;
+      line-height: 1.5;
+    }
+
+    /* 3D Desktop Computer */
+    .desktop-container {
+      perspective: 1200px;
+      flex-shrink: 0;
+    }
+
+    .desktop-computer {
+      width: 450px;
+      height: 400px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotateDesktop 25s infinite linear;
+      cursor: grab;
+      transition: transform 0.1s ease-out;
+    }
+
+    .desktop-computer:active {
+      cursor: grabbing;
+    }
+
+    @keyframes rotateDesktop {
+      0% {
+        transform: rotateY(-15deg) rotateX(5deg);
+      }
+      50% {
+        transform: rotateY(15deg) rotateX(5deg);
+      }
+      100% {
+        transform: rotateY(-15deg) rotateX(5deg);
+      }
+    }
+
+    .monitor {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    .monitor-frame {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .monitor-screen {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .browser-window {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .browser-header {
+      background: rgba(40, 40, 50, 0.95);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+
+    .browser-url {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+    }
+
+    .browser-actions {
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    .browser-content {
+      flex: 1;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .web-hero {
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeInScale 2s ease infinite alternate;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .web-logo {
+      font-size: 48px;
+      margin-bottom: 10px;
+      animation: bounce 2s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .web-title-animated {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .web-sections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .web-card {
+      aspect-ratio: 1;
+      background: rgba(102, 126, 234, 0.15);
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .web-card:nth-child(1) { animation-delay: 0s; }
+    .web-card:nth-child(2) { animation-delay: 0.3s; }
+    .web-card:nth-child(3) { animation-delay: 0.6s; }
+
+    .monitor-stand {
+      width: 80px;
+      height: 60px;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      margin: 0 auto;
+      position: relative;
+      top: -5px;
+      clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+    }
+
+    .monitor-base {
+      width: 180px;
+      height: 12px;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      margin: 0 auto;
+      border-radius: 6px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 3D iPhone */
+    .iphone-container {
+      perspective: 1000px;
+      flex-shrink: 0;
+    }
+
+    .iphone {
+      width: 280px;
+      height: 570px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate3d 20s infinite linear;
+      cursor: grab;
+      transition: animation-play-state 0.3s ease;
+    }
+
+    .iphone:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes rotate3d {
+      0% {
+        transform: rotateY(0deg) rotateX(5deg);
+      }
+      50% {
+        transform: rotateY(180deg) rotateX(5deg);
+      }
+      100% {
+        transform: rotateY(360deg) rotateX(5deg);
+      }
+    }
+
+    .iphone-body {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      border-radius: 45px;
+      position: relative;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+      transform-style: preserve-3d;
+    }
+
+    /* iPhone notch */
+    .iphone-notch {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 25px;
+      background: #000;
+      border-radius: 0 0 15px 15px;
+      z-index: 3;
+    }
+
+    /* iPhone screen */
+    .iphone-screen {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 38px;
+      overflow: hidden;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* App interface on screen */
+    .app-interface {
+      width: 100%;
+      height: 100%;
+      padding: 50px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .app-header {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      color: white;
+      font-weight: 600;
+      animation: slideDown 1s ease infinite alternate;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(0); }
+      to { transform: translateY(5px); }
+    }
+
+    .app-content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 10px;
+    }
+
+    .app-icon {
+      aspect-ratio: 1;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      transition: all 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .app-icon:nth-child(1) { animation-delay: 0s; }
+    .app-icon:nth-child(2) { animation-delay: 0.2s; }
+    .app-icon:nth-child(3) { animation-delay: 0.4s; }
+    .app-icon:nth-child(4) { animation-delay: 0.6s; }
+    .app-icon:nth-child(5) { animation-delay: 0.8s; }
+    .app-icon:nth-child(6) { animation-delay: 1s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* iPhone buttons */
+    .iphone-button {
+      position: absolute;
+      background: linear-gradient(90deg, #2d2d2d 0%, #1a1a1a 100%);
+      border-radius: 2px;
+    }
+
+    .power-button {
+      right: -3px;
+      top: 120px;
+      width: 3px;
+      height: 80px;
+    }
+
+    .volume-up {
+      left: -3px;
+      top: 100px;
+      width: 3px;
+      height: 50px;
+    }
+
+    .volume-down {
+      left: -3px;
+      top: 160px;
+      width: 3px;
+      height: 50px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .skill-card:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: rgba(102, 126, 234, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .skill-card:active {
+      transform: translateY(-1px) scale(0.98);
+    }
+
+    .skill-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border: 2px solid rgba(102, 126, 234, 0.5);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      transform: scale(0.8) translateY(50px);
+      transition: transform 0.3s ease;
+      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 24px;
+      color: #e0e0e0;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(102, 126, 234, 0.5);
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .modal-icon {
+      font-size: 64px;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      animation: modalIconPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes modalIconPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+      }
+    }
+
+    .modal-title-section {
+      flex: 1;
+    }
+
+    .modal-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 10px 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .modal-category {
+      font-size: 14px;
+      color: #a0a0a0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .modal-description {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #c0c0c0;
+      margin-bottom: 25px;
+    }
+
+    .modal-features {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .modal-features h4 {
+      font-size: 18px;
+      color: #ffffff;
+      margin: 0 0 15px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modal-features li {
+      font-size: 14px;
+      color: #c0c0c0;
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .modal-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .modal-footer {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+    }
+
+    .modal-button {
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      outline: none;
+    }
+
+    .modal-button-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .modal-button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+
+    .modal-button-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #e0e0e0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-button-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(102, 126, 234, 0.5);
+    }
+
+    /* Neural Network 3D Visualization */
+    .neural-network-container {
+      perspective: 1200px;
+      flex-shrink: 0;
+    }
+
+    .neural-network-3d {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.15) 0%, rgba(15, 15, 30, 0.95) 70%);
+      border: 2px solid rgba(102, 126, 234, 0.5);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 
+        0 20px 60px rgba(102, 126, 234, 0.3),
+        inset 0 0 100px rgba(102, 126, 234, 0.1);
+      cursor: grab;
+      user-select: none;
+      animation: neuralGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes neuralGlow {
+      0% {
+        box-shadow: 
+          0 20px 60px rgba(102, 126, 234, 0.3),
+          inset 0 0 100px rgba(102, 126, 234, 0.1);
+      }
+      100% {
+        box-shadow: 
+          0 25px 80px rgba(102, 126, 234, 0.5),
+          inset 0 0 120px rgba(102, 126, 234, 0.2);
+      }
+    }
+
+    .neural-network-3d:active {
+      cursor: grabbing;
+    }
+
+    #neuralCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      filter: brightness(1.1) contrast(1.2);
+    }
+
+    .neural-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .neural-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(15px);
+      padding: 12px 20px;
+      border-radius: 25px;
+      width: fit-content;
+      border: 1px solid rgba(102, 126, 234, 0.5);
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .status-indicator {
+      width: 12px;
+      height: 12px;
+      background: #27c93f;
+      border-radius: 50%;
+      animation: statusPulse 2s ease-in-out infinite;
+      box-shadow: 0 0 15px #27c93f, 0 0 30px rgba(39, 201, 63, 0.5);
+      position: relative;
+    }
+
+    .status-indicator::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background: rgba(39, 201, 63, 0.3);
+      border-radius: 50%;
+      animation: statusRipple 2s ease-out infinite;
+    }
+
+    @keyframes statusPulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.7;
+        transform: scale(1.3);
+      }
+    }
+
+    @keyframes statusRipple {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+      }
+    }
+
+    .neural-status span {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+    }
+
+    .neural-stats {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .stat-item {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(15px);
+      padding: 15px 20px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid rgba(102, 126, 234, 0.5);
+      min-width: 100px;
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+      animation: statShimmer 3s infinite;
+    }
+
+    @keyframes statShimmer {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: 5px;
+      text-shadow: 0 0 15px rgba(102, 126, 234, 0.8), 0 0 30px rgba(102, 126, 234, 0.4);
+      animation: statGlow 2s ease-in-out infinite alternate;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes statGlow {
+      0% {
+        text-shadow: 0 0 15px rgba(102, 126, 234, 0.8), 0 0 30px rgba(102, 126, 234, 0.4);
+      }
+      100% {
+        text-shadow: 0 0 20px rgba(102, 126, 234, 1), 0 0 40px rgba(102, 126, 234, 0.6);
+      }
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #c0c0c0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 25px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-item:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: rgba(102, 126, 234, 0.5);
+      transform: translateX(5px);
+    }
+
+    .contact-icon {
+      font-size: 28px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: #a0a0a0;
+      margin-bottom: 5px;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      color: #e0e0e0;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 20px;
+      }
+
+      .name {
+        font-size: 36px;
+      }
+
+      .title {
+        font-size: 20px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+
+      .mobile-showcase {
+        gap: 40px;
+      }
+
+      .iphone {
+        width: 240px;
+        height: 490px;
+      }
+
+      .desktop-computer {
+        width: 320px;
+        height: 300px;
+      }
+
+      .monitor-frame {
+        height: 200px;
+      }
+
+      .web-logo {
+        font-size: 36px;
+      }
+
+      .web-title-animated {
+        font-size: 14px;
+      }
+
+      .about-card {
+        flex-direction: column;
+        padding: 25px;
+      }
+
+      .about-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 40px;
+      }
+
+      .about-content h3 {
+        font-size: 20px;
+      }
+
+      .about-content p {
+        font-size: 14px;
+      }
+
+      .neural-network-3d {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+      }
+
+      .neural-stats {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .stat-item {
+        min-width: 80px;
+        padding: 12px 15px;
+      }
+
+      .stat-value {
+        font-size: 20px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Animated particles -->
+  <div id="particles"></div>
+  <div class="container"><!-- Header -->
+   <header class="header">
+    <div class="profile-image">
+     👨‍💻
+    </div>
+    <h1 class="name" id="developer-name">David Jesua</h1>
+    <p class="title" id="job-title">Full Stack Developer</p>
+    <p class="bio" id="bio-text">Desarrollador apasionado con 5+ años de experiencia creando aplicaciones web modernas y escalables. Especializado en JavaScript, React y Node.js.</p>
+   </header><!-- Experience Section -->
+   <section class="section">
+    <h2 class="section-title" id="experience-title">Experiencia</h2>
+    <div class="experience-grid">
+     <div class="experience-card" data-experience="senior">
+      <div class="experience-header">
+       <h3 class="experience-role">Senior Full Stack Developer</h3><span class="experience-period">2021 - Presente</span>
+      </div>
+      <p class="experience-company">Tech Solutions Inc.</p>
+      <p class="experience-description">Liderazgo de equipo en el desarrollo de aplicaciones web empresariales. Implementación de arquitecturas escalables y mejores prácticas de desarrollo.</p>
+     </div>
+     <div class="experience-card" data-experience="fullstack">
+      <div class="experience-header">
+       <h3 class="experience-role">Full Stack Developer</h3><span class="experience-period">2019 - 2021</span>
+      </div>
+      <p class="experience-company">Digital Innovations</p>
+      <p class="experience-description">Desarrollo de aplicaciones SaaS utilizando React, Node.js y MongoDB. Optimización de rendimiento y experiencia de usuario.</p>
+     </div>
+     <div class="experience-card" data-experience="frontend">
+      <div class="experience-header">
+       <h3 class="experience-role">Frontend Developer</h3><span class="experience-period">2018 - 2019</span>
+      </div>
+      <p class="experience-company">StartUp Labs</p>
+      <p class="experience-description">Creación de interfaces de usuario responsivas y accesibles. Colaboración estrecha con diseñadores y backend developers.</p>
+     </div>
+    </div>
+   </section><!-- About Me Section -->
+   <section class="section">
+    <h2 class="section-title" id="about-title">Sobre Mí</h2>
+    <div class="about-container">
+     <div class="about-card" data-about="education">
+      <div class="about-icon">
+       🎓
+      </div>
+      <div class="about-content">
+       <h3>Formación Académica</h3>
+       <p>Ingeniero en Sistemas egresado del <strong>Instituto Tecnológico de Comitán</strong>. Mi formación académica me proporcionó las bases sólidas en programación, arquitectura de software y metodologías de desarrollo que aplico en cada proyecto.</p>
+      </div>
+     </div>
+     <div class="about-card" data-about="approach">
+      <div class="about-icon">
+       💡
+      </div>
+      <div class="about-content">
+       <h3>Mi Enfoque</h3>
+       <p>Me especializo en la <strong>creación de aplicaciones móviles y web para negocios y empresas</strong>. Mi objetivo es transformar ideas en soluciones digitales que impulsen el crecimiento y mejoren la eficiencia operativa de cada organización.</p>
+      </div>
+     </div>
+     <div class="about-card" data-about="solutions">
+      <div class="about-icon">
+       🚀
+      </div>
+      <div class="about-content">
+       <h3>Soluciones Empresariales</h3>
+       <p>Desarrollo aplicaciones escalables y robustas que se adaptan a las necesidades específicas de cada negocio. Desde startups hasta empresas consolidadas, creo herramientas digitales que generan valor real y resultados medibles.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Work Philosophy Section -->
+   <section class="section">
+    <h2 class="section-title" id="work-philosophy-title">Filosofía de Trabajo</h2>
+    <div class="about-container">
+     <div class="about-card" data-philosophy="environment">
+      <div class="about-icon">
+       🤝
+      </div>
+      <div class="about-content">
+       <h3>Entorno Saludable y Colaborativo</h3>
+       <p>Creo firmemente en la importancia de trabajar en un <strong>entorno laboral saludable y positivo</strong>. Para mí, el éxito de cualquier proyecto no solo depende de las habilidades técnicas, sino también de la <strong>calidad de las relaciones dentro del equipo</strong>. Busco espacios donde la comunicación sea abierta, el respeto mutuo sea la base, y donde cada miembro se sienta valorado y escuchado.</p>
+      </div>
+     </div>
+     <div class="about-card" data-philosophy="teamwork">
+      <div class="about-icon">
+       👥
+      </div>
+      <div class="about-content">
+       <h3>Trabajo en Equipo e Integración</h3>
+       <p>Me apasiona formar parte de <strong>equipos bien integrados</strong> donde nos llevemos bien tanto a nivel profesional como personal. Creo que cuando existe buena química entre los miembros del equipo, la creatividad fluye mejor, los problemas se resuelven más eficientemente y el ambiente de trabajo se vuelve más productivo y agradable. La <strong>colaboración genuina</strong> y el apoyo mutuo son fundamentales para crear productos excepcionales.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Featured Projects Section -->
+   <section class="section">
+    <h2 class="section-title" id="projects-title">Proyectos Destacados</h2>
+    <div class="about-container">
+     <div class="about-card" data-project="oncology">
+      <div class="about-icon">
+       🏥
+      </div>
+      <div class="about-content">
+       <h3>Plataforma Oncológica para la Salud</h3>
+       <p>Sistema integral de gestión oncológica que revoluciona el seguimiento y tratamiento de pacientes con cáncer. Incluye <strong>diagnóstico asistido por IA</strong>, gestión de tratamientos, análisis predictivo y herramientas para profesionales de la salud. Reconocida a nivel nacional en Exposiencias 2025.</p>
+      </div>
+     </div>
+     <div class="about-card" data-project="extinguisher">
+      <div class="about-icon">
+       🧯
+      </div>
+      <div class="about-content">
+       <h3>Sistema de Checklist para Extintores Empresarial</h3>
+       <p>Aplicación empresarial para la <strong>gestión y control de extintores</strong> en organizaciones. Permite realizar inspecciones periódicas, generar reportes de cumplimiento normativo, programar mantenimientos y mantener un historial completo de cada extintor. Optimiza la seguridad industrial y el cumplimiento de regulaciones.</p>
+      </div>
+     </div>
+     <div class="about-card" data-project="nursing">
+      <div class="about-icon">
+       👩‍⚕️
+      </div>
+      <div class="about-content">
+       <h3>Aplicación de Reportes para Enfermería</h3>
+       <p>Sistema especializado para el <strong>área de enfermería</strong> que facilita la documentación de cuidados, registro de signos vitales, administración de medicamentos y generación de reportes médicos. Mejora la eficiencia del personal de enfermería y la calidad de atención al paciente.</p>
+      </div>
+     </div>
+     <div class="about-card" data-project="nutrition">
+      <div class="about-icon">
+       🥗
+      </div>
+      <div class="about-content">
+       <h3>Plataforma para Nutriólogos</h3>
+       <p>Herramienta completa para <strong>profesionales de la nutrición</strong> que incluye gestión de pacientes, planes alimenticios personalizados, seguimiento de progreso, cálculo de requerimientos nutricionales y generación de dietas. Facilita el trabajo del nutriólogo y mejora los resultados con los pacientes.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Achievements Section -->
+   <section class="section">
+    <h2 class="section-title" id="achievements-title">Logros Destacados</h2>
+    <div class="about-container">
+     <div class="about-card achievement-highlight" data-achievement="exposiencias">
+      <div class="about-icon achievement-icon">
+       🏆
+      </div>
+      <div class="about-content">
+       <h3>Nacional de Exposiencias 2025</h3>
+       <p>Orgulloso de haber llegado al <strong>Nacional de Exposiencias 2025</strong> con el desarrollo de una <strong>plataforma oncológica innovadora</strong>. Este proyecto representa mi compromiso con la tecnología aplicada a la salud, creando soluciones que pueden impactar positivamente la vida de pacientes y profesionales médicos.</p>
+       <div class="achievement-badge"><span class="badge-icon">🎖️</span> <span class="badge-text">Reconocimiento Nacional</span>
+       </div>
+      </div>
+     </div>
+     <div class="about-card achievement-highlight" data-achievement="congresos">
+      <div class="about-icon achievement-icon">
+       🎤
+      </div>
+      <div class="about-content">
+       <h3>Expositor en Congresos de Desarrollo Móvil</h3>
+       <p>Participación activa como <strong>expositor en congresos especializados</strong> en desarrollo de aplicaciones móviles. Compartiendo conocimientos, mejores prácticas y experiencias con la comunidad de desarrolladores, contribuyendo al crecimiento del ecosistema tecnológico.</p>
+       <div class="achievement-badge"><span class="badge-icon">📱</span> <span class="badge-text">Ponente Especializado</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- AI Integration Section -->
+   <section class="section">
+    <h2 class="section-title" id="ai-integration-title">Integración de Inteligencia Artificial</h2>
+    <div class="mobile-showcase">
+     <div class="neural-network-container">
+      <div class="neural-network-3d">
+       <canvas id="neuralCanvas"></canvas>
+       <div class="neural-overlay">
+        <div class="neural-status">
+         <div class="status-indicator"></div><span>Red Neuronal Activa</span>
+        </div>
+        <div class="neural-stats">
+         <div class="stat-item"><span class="stat-value" id="nodes-count">128</span> <span class="stat-label">Nodos</span>
+         </div>
+         <div class="stat-item"><span class="stat-value" id="connections-count">384</span> <span class="stat-label">Conexiones</span>
+         </div>
+         <div class="stat-item"><span class="stat-value" id="accuracy">98.7%</span> <span class="stat-label">Precisión</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="mobile-info">
+      <div class="mobile-feature" data-ai="tool">
+       <div class="mobile-feature-icon">
+        🤖
+       </div>
+       <div class="mobile-feature-content">
+        <h3>IA como Herramienta de Potenciación</h3>
+        <p>Como programador moderno, integro la inteligencia artificial de manera estratégica y responsable. No veo la IA como un reemplazo, sino como una herramienta poderosa que potencia mis capacidades.</p>
+       </div>
+      </div>
+      <div class="mobile-feature" data-ai="ethics">
+       <div class="mobile-feature-icon">
+        🧠
+       </div>
+       <div class="mobile-feature-content">
+        <h3>Implementación Ética y Efectiva</h3>
+        <p>Mi enfoque con la IA se basa en la implementación ética y con propósito. Utilizo modelos de machine learning, procesamiento de lenguaje natural y análisis predictivo cuando realmente aportan valor.</p>
+       </div>
+      </div>
+      <div class="mobile-feature" data-ai="innovation">
+       <div class="mobile-feature-icon">
+        ⚡
+       </div>
+       <div class="mobile-feature-content">
+        <h3>Innovación y Aprendizaje Continuo</h3>
+        <p>Me mantengo constantemente actualizado con las últimas tecnologías de IA, desde GPT y modelos de lenguaje hasta visión por computadora y análisis de datos.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Web Development Section -->
+   <section class="section">
+    <h2 class="section-title" id="web-title">Desarrollo Web</h2>
+    <div class="mobile-showcase">
+     <div class="desktop-container">
+      <div class="desktop-computer">
+       <div class="monitor">
+        <div class="monitor-frame">
+         <div class="monitor-screen">
+          <div class="browser-window">
+           <div class="browser-header">
+            <div class="browser-dots"><span class="dot red"></span> <span class="dot yellow"></span> <span class="dot green"></span>
+            </div>
+            <div class="browser-url">
+             https://mi-negocio.com
+            </div>
+            <div class="browser-actions">
+             ⚙️
+            </div>
+           </div>
+           <div class="browser-content">
+            <div class="web-hero">
+             <div class="web-logo">
+              🏢
+             </div>
+             <div class="web-title-animated">
+              Tu Negocio Online
+             </div>
+            </div>
+            <div class="web-sections">
+             <div class="web-card">
+              📊
+             </div>
+             <div class="web-card">
+              💼
+             </div>
+             <div class="web-card">
+              📈
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="monitor-stand"></div>
+        <div class="monitor-base"></div>
+       </div>
+      </div>
+     </div>
+     <div class="mobile-info">
+      <div class="mobile-feature" data-web="corporate">
+       <div class="mobile-feature-icon">
+        🌐
+       </div>
+       <div class="mobile-feature-content">
+        <h3>Sitios Web Empresariales</h3>
+        <p>Desarrollo de sitios web corporativos modernos y responsivos que reflejan la identidad de tu negocio y atraen clientes.</p>
+       </div>
+      </div>
+      <div class="mobile-feature" data-web="webapp">
+       <div class="mobile-feature-icon">
+        💻
+       </div>
+       <div class="mobile-feature-content">
+        <h3>Aplicaciones Web</h3>
+        <p>Sistemas web personalizados para empresas: CRM, ERP, dashboards y herramientas que optimizan procesos de negocio.</p>
+       </div>
+      </div>
+      <div class="mobile-feature" data-web="ecommerce">
+       <div class="mobile-feature-icon">
+        🛒
+       </div>
+       <div class="mobile-feature-content">
+        <h3>E-commerce</h3>
+        <p>Tiendas online completas con pasarelas de pago, gestión de inventario y análisis de ventas para hacer crecer tu negocio.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Mobile Development Section -->
+   <section class="section">
+    <h2 class="section-title" id="mobile-title">Desarrollo Móvil</h2>
+    <div class="mobile-showcase">
+     <div class="mobile-info">
+      <div class="mobile-feature" data-mobile="native">
+       <div class="mobile-feature-icon">
+        📱
+       </div>
+       <div class="mobile-feature-content">
+        <h3>Apps Nativas</h3>
+        <p>Desarrollo de aplicaciones iOS y Android con Swift y Kotlin, optimizadas para rendimiento máximo.</p>
+       </div>
+      </div>
+      <div class="mobile-feature" data-mobile="reactnative">
+       <div class="mobile-feature-icon">
+        ⚡
+       </div>
+       <div class="mobile-feature-content">
+        <h3>React Native</h3>
+        <p>Aplicaciones multiplataforma con código compartido, reduciendo tiempos de desarrollo hasta un 40%.</p>
+       </div>
+      </div>
+      <div class="mobile-feature" data-mobile="uiux">
+       <div class="mobile-feature-icon">
+        🎨
+       </div>
+       <div class="mobile-feature-content">
+        <h3>UI/UX Móvil</h3>
+        <p>Diseño de interfaces intuitivas siguiendo las guías de Material Design y Human Interface Guidelines.</p>
+       </div>
+      </div>
+     </div>
+     <div class="iphone-container">
+      <div class="iphone">
+       <div class="iphone-body">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+         <div class="app-interface">
+          <div class="app-header">
+           Mi Portfolio App
+          </div>
+          <div class="app-content">
+           <div class="app-icon">
+            🏠
+           </div>
+           <div class="app-icon">
+            💼
+           </div>
+           <div class="app-icon">
+            📊
+           </div>
+           <div class="app-icon">
+            ⚙️
+           </div>
+           <div class="app-icon">
+            📧
+           </div>
+           <div class="app-icon">
+            👤
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="iphone-button power-button"></div>
+        <div class="iphone-button volume-up"></div>
+        <div class="iphone-button volume-down"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section class="section">
+    <h2 class="section-title" id="skills-title">Habilidades</h2>
+    <div class="skills-grid">
+     <div class="skill-card" data-skill="react">
+      <div class="skill-icon">
+       ⚛️
+      </div>
+      <div class="skill-name">
+       React
+      </div>
+     </div>
+     <div class="skill-card" data-skill="nodejs">
+      <div class="skill-icon">
+       📗
+      </div>
+      <div class="skill-name">
+       Node.js
+      </div>
+     </div>
+     <div class="skill-card" data-skill="android">
+      <div class="skill-icon">
+       🤖
+      </div>
+      <div class="skill-name">
+       Android Studio
+      </div>
+     </div>
+     <div class="skill-card" data-skill="xcode">
+      <div class="skill-icon">
+       🍎
+      </div>
+      <div class="skill-name">
+       Xcode
+      </div>
+     </div>
+     <div class="skill-card" data-skill="html">
+      <div class="skill-icon">
+       🌐
+      </div>
+      <div class="skill-name">
+       HTML
+      </div>
+     </div>
+     <div class="skill-card" data-skill="css">
+      <div class="skill-icon">
+       🎨
+      </div>
+      <div class="skill-name">
+       CSS/Tailwind
+      </div>
+     </div>
+     <div class="skill-card" data-skill="mongodb">
+      <div class="skill-icon">
+       💾
+      </div>
+      <div class="skill-name">
+       MongoDB
+      </div>
+     </div>
+     <div class="skill-card" data-skill="postgresql">
+      <div class="skill-icon">
+       🐘
+      </div>
+      <div class="skill-name">
+       PostgreSQL
+      </div>
+     </div>
+     <div class="skill-card" data-skill="typescript">
+      <div class="skill-icon">
+       🔷
+      </div>
+      <div class="skill-name">
+       TypeScript
+      </div>
+     </div>
+     <div class="skill-card" data-skill="docker">
+      <div class="skill-icon">
+       🐳
+      </div>
+      <div class="skill-name">
+       Docker
+      </div>
+     </div>
+     <div class="skill-card" data-skill="aws">
+      <div class="skill-icon">
+       ☁️
+      </div>
+      <div class="skill-name">
+       AWS
+      </div>
+     </div>
+     <div class="skill-card" data-skill="java">
+      <div class="skill-icon">
+       ☕
+      </div>
+      <div class="skill-name">
+       Java
+      </div>
+     </div>
+     <div class="skill-card" data-skill="python">
+      <div class="skill-icon">
+       🐍
+      </div>
+      <div class="skill-name">
+       Python
+      </div>
+     </div>
+     <div class="skill-card" data-skill="php">
+      <div class="skill-icon">
+       🐘
+      </div>
+      <div class="skill-name">
+       PHP
+      </div>
+     </div>
+     <div class="skill-card" data-skill="networking">
+      <div class="skill-icon">
+       🌐
+      </div>
+      <div class="skill-name">
+       Redes
+      </div>
+     </div>
+     <div class="skill-card" data-skill="netadmin">
+      <div class="skill-icon">
+       🔧
+      </div>
+      <div class="skill-name">
+       Admin. Redes
+      </div>
+     </div>
+    </div>
+   </section><!-- Modal -->
+   <div class="modal-overlay" id="skillModal">
+    <div class="modal-content">
+     <div class="modal-close" id="modalClose">
+      ×
+     </div>
+     <div class="modal-header">
+      <div class="modal-icon" id="modalIcon">
+       ⚛️
+      </div>
+      <div class="modal-title-section">
+       <h3 class="modal-title" id="modalTitle">React</h3>
+       <p class="modal-category" id="modalCategory">Biblioteca JavaScript</p>
+      </div>
+     </div>
+     <p class="modal-description" id="modalDescription">React es una biblioteca de JavaScript para construir interfaces de usuario.</p>
+     <div class="modal-features">
+      <h4>✨ Características Principales</h4>
+      <ul id="modalFeatures">
+       <li>Componentes reutilizables</li>
+       <li>Virtual DOM para rendimiento óptimo</li>
+       <li>Ecosistema robusto</li>
+      </ul>
+     </div>
+     <div class="modal-footer"><button class="modal-button modal-button-secondary" id="modalCloseBtn">Cerrar</button> <button class="modal-button modal-button-primary" id="modalLearnMore">Aprender Más</button>
+     </div>
+    </div>
+   </div><!-- Contact Section -->
+   <section class="section">
+    <h2 class="section-title" id="contact-title">Contacto</h2>
+    <div class="contact-grid"><a href="mailto:alex@example.com" class="contact-item" target="_blank" rel="noopener noreferrer">
+      <div class="contact-icon">
+       📧
+      </div>
+      <div class="contact-info">
+       <div class="contact-label">
+        Email
+       </div>
+       <div class="contact-value">
+        appleedavid@gmail.com
+       </div>
+      </div></a> <a href="https://github.com/ingdavid23" class="contact-item" target="_blank" rel="noopener noreferrer">
+      <div class="contact-icon">
+       💻
+      </div>
+      <div class="contact-info">
+       <div class="contact-label">
+        GitHub
+       </div>
+       <div class="contact-value">
+        @ingdavid23
+       </div>
+      </div></a> <a href="https://linkedin.com/in/alexmartinez" class="contact-item" target="_blank" rel="noopener noreferrer">
+      <div class="contact-icon">
+       💼
+      </div>
+      <div class="contact-info">
+       <div class="contact-label">
+        LinkedIn
+       </div>
+       <div class="contact-value">
+        /davidjesua 
+       </div>
+      </div></a>
+    </div>
+   </section>
+  </div>
+  <script>
+    // Create animated star particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 80;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        
+        // Random size class
+        const sizeClasses = ['small', 'medium', 'large'];
+        const randomSize = sizeClasses[Math.floor(Math.random() * sizeClasses.length)];
+        particle.className = `particle ${randomSize}`;
+        
+        // Random position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 120 + '%';
+        
+        // Random animation delays for natural effect
+        const twinkleDelay = Math.random() * 5;
+        const floatDelay = Math.random() * 35;
+        particle.style.animationDelay = `${twinkleDelay}s, ${floatDelay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    createParticles();
+
+    // Experience Modal Data
+    const experienceData = {
+      senior: {
+        icon: '👨‍💼',
+        title: 'Senior Full Stack Developer',
+        category: 'Tech Solutions Inc. | 2021 - Presente',
+        description: 'Como Senior Full Stack Developer, lidero equipos de desarrollo en la creación de aplicaciones web empresariales de alto impacto. Mi rol combina liderazgo técnico, arquitectura de software y mentoría de desarrolladores junior.',
+        features: [
+          'Liderazgo de equipos de 5-8 desarrolladores en proyectos complejos',
+          'Diseño e implementación de arquitecturas escalables y microservicios',
+          'Implementación de CI/CD y mejores prácticas de DevOps',
+          'Mentoría técnica y revisión de código del equipo',
+          'Colaboración directa con stakeholders y product managers',
+          'Optimización de rendimiento y reducción de costos de infraestructura'
+        ],
+        learnMoreUrl: ''
+      },
+      fullstack: {
+        icon: '💻',
+        title: 'Full Stack Developer',
+        category: 'Digital Innovations | 2019 - 2021',
+        description: 'Desarrollo de aplicaciones SaaS completas desde el frontend hasta el backend. Trabajé en un entorno ágil creando soluciones innovadoras para clientes de diversos sectores, con enfoque en experiencia de usuario y rendimiento.',
+        features: [
+          'Desarrollo de aplicaciones SaaS con React, Node.js y MongoDB',
+          'Implementación de APIs RESTful y GraphQL',
+          'Optimización de rendimiento frontend y backend',
+          'Integración de servicios de terceros y pasarelas de pago',
+          'Trabajo en metodología Scrum con sprints de 2 semanas',
+          'Reducción del tiempo de carga de aplicaciones en un 60%'
+        ],
+        learnMoreUrl: ''
+      },
+      frontend: {
+        icon: '🎨',
+        title: 'Frontend Developer',
+        category: 'StartUp Labs | 2018 - 2019',
+        description: 'Mi primer rol profesional donde me especialicé en crear interfaces de usuario modernas, responsivas y accesibles. Colaboré estrechamente con diseñadores UX/UI y desarrolladores backend para crear experiencias web excepcionales.',
+        features: [
+          'Desarrollo de interfaces responsivas con HTML5, CSS3 y JavaScript',
+          'Implementación de diseños pixel-perfect desde Figma y Adobe XD',
+          'Creación de componentes reutilizables con React',
+          'Optimización de accesibilidad web (WCAG 2.1)',
+          'Colaboración con diseñadores en sistema de diseño',
+          'Testing de compatibilidad cross-browser'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // About Modal Data
+    const aboutData = {
+      education: {
+        icon: '🎓',
+        title: 'Formación Académica',
+        category: 'Educación y Certificaciones',
+        description: 'Ingeniero en Sistemas egresado del Instituto Tecnológico de Comitán. Mi formación académica me proporcionó las bases sólidas en programación, arquitectura de software y metodologías de desarrollo que aplico en cada proyecto.',
+        features: [
+          'Ingeniería en Sistemas - Instituto Tecnológico de Comitán',
+          'Especialización en Desarrollo de Software y Arquitectura',
+          'Fundamentos sólidos en algoritmos y estructuras de datos',
+          'Metodologías ágiles y gestión de proyectos',
+          'Bases de datos relacionales y no relacionales',
+          'Aprendizaje continuo a través de cursos y certificaciones'
+        ],
+        learnMoreUrl: ''
+      },
+      approach: {
+        icon: '💡',
+        title: 'Mi Enfoque',
+        category: 'Filosofía de Desarrollo',
+        description: 'Me especializo en la creación de aplicaciones móviles y web para negocios y empresas. Mi objetivo es transformar ideas en soluciones digitales que impulsen el crecimiento y mejoren la eficiencia operativa de cada organización.',
+        features: [
+          'Enfoque en soluciones que generan valor real para el negocio',
+          'Desarrollo centrado en el usuario y experiencia de usuario',
+          'Código limpio, mantenible y bien documentado',
+          'Escalabilidad y rendimiento desde el diseño inicial',
+          'Comunicación clara y transparente con clientes',
+          'Entrega iterativa con feedback continuo'
+        ],
+        learnMoreUrl: ''
+      },
+      solutions: {
+        icon: '🚀',
+        title: 'Soluciones Empresariales',
+        category: 'Servicios y Especialización',
+        description: 'Desarrollo aplicaciones escalables y robustas que se adaptan a las necesidades específicas de cada negocio. Desde startups hasta empresas consolidadas, creo herramientas digitales que generan valor real y resultados medibles.',
+        features: [
+          'Aplicaciones web empresariales (CRM, ERP, dashboards)',
+          'Aplicaciones móviles nativas y multiplataforma',
+          'E-commerce y plataformas de venta online',
+          'Sistemas de gestión y automatización de procesos',
+          'Integraciones con APIs y servicios externos',
+          'Consultoría técnica y auditoría de código'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // Philosophy Modal Data
+    const philosophyData = {
+      environment: {
+        icon: '🤝',
+        title: 'Entorno Saludable y Colaborativo',
+        category: 'Cultura de Trabajo',
+        description: 'Creo firmemente en la importancia de trabajar en un entorno laboral saludable y positivo. Para mí, el éxito de cualquier proyecto no solo depende de las habilidades técnicas, sino también de la calidad de las relaciones dentro del equipo.',
+        features: [
+          'Comunicación abierta y transparente en todo momento',
+          'Respeto mutuo como base de todas las interacciones',
+          'Ambiente donde cada miembro se siente valorado',
+          'Balance entre vida personal y profesional',
+          'Cultura de feedback constructivo y aprendizaje',
+          'Celebración de logros individuales y del equipo'
+        ],
+        learnMoreUrl: ''
+      },
+      teamwork: {
+        icon: '👥',
+        title: 'Trabajo en Equipo e Integración',
+        category: 'Colaboración y Sinergia',
+        description: 'Me apasiona formar parte de equipos bien integrados donde nos llevemos bien tanto a nivel profesional como personal. Creo que cuando existe buena química entre los miembros del equipo, la creatividad fluye mejor y los problemas se resuelven más eficientemente.',
+        features: [
+          'Colaboración genuina y apoyo mutuo constante',
+          'Compartir conocimientos y experiencias libremente',
+          'Resolución de problemas en equipo de forma creativa',
+          'Ambiente productivo y agradable de trabajo',
+          'Integración social y actividades de team building',
+          'Sinergia que potencia las fortalezas individuales'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // Projects Modal Data
+    const projectsData = {
+      oncology: {
+        icon: '🏥',
+        title: 'Plataforma Oncológica para la Salud',
+        category: 'Sistema de Salud | Tecnología Médica',
+        description: 'Sistema integral de gestión oncológica que revoluciona el seguimiento y tratamiento de pacientes con cáncer. Esta plataforma combina tecnología de vanguardia con inteligencia artificial para mejorar los resultados en el tratamiento oncológico y facilitar el trabajo de los profesionales de la salud.',
+        features: [
+          'Diagnóstico asistido por inteligencia artificial',
+          'Gestión completa de pacientes oncológicos',
+          'Seguimiento de tratamientos y quimioterapias',
+          'Análisis predictivo de evolución de tratamientos',
+          'Historial médico electrónico especializado',
+          'Generación de reportes médicos automatizados',
+          'Cumplimiento de normativas de privacidad médica (HIPAA)',
+          'Reconocida a nivel nacional en Exposiencias 2025'
+        ],
+        learnMoreUrl: ''
+      },
+      extinguisher: {
+        icon: '🧯',
+        title: 'Sistema de Checklist para Extintores Empresarial',
+        category: 'Seguridad Industrial | Gestión Empresarial',
+        description: 'Aplicación empresarial diseñada para optimizar la gestión y control de extintores en organizaciones de cualquier tamaño. Facilita el cumplimiento de normativas de seguridad industrial y mantiene un control exhaustivo del estado de cada extintor.',
+        features: [
+          'Inspecciones periódicas con checklist digital',
+          'Generación automática de reportes de cumplimiento',
+          'Programación de mantenimientos preventivos',
+          'Historial completo de cada extintor',
+          'Alertas de vencimiento y mantenimiento',
+          'Geolocalización de extintores en instalaciones',
+          'Dashboard con métricas de cumplimiento normativo',
+          'Exportación de reportes para auditorías'
+        ],
+        learnMoreUrl: ''
+      },
+      nursing: {
+        icon: '👩‍⚕️',
+        title: 'Aplicación de Reportes para Enfermería',
+        category: 'Sistema de Salud | Área de Enfermería',
+        description: 'Sistema especializado para el área de enfermería que digitaliza y optimiza la documentación de cuidados médicos. Mejora la eficiencia del personal de enfermería y la calidad de atención al paciente mediante herramientas intuitivas y completas.',
+        features: [
+          'Registro digital de signos vitales en tiempo real',
+          'Documentación de cuidados de enfermería',
+          'Control de administración de medicamentos',
+          'Generación de reportes de turno automatizados',
+          'Alertas de medicación y procedimientos',
+          'Historial de intervenciones de enfermería',
+          'Integración con sistemas hospitalarios',
+          'Interfaz optimizada para uso en tablets'
+        ],
+        learnMoreUrl: ''
+      },
+      nutrition: {
+        icon: '🥗',
+        title: 'Plataforma para Nutriólogos',
+        category: 'Sistema de Salud | Nutrición',
+        description: 'Herramienta completa diseñada específicamente para profesionales de la nutrición. Facilita la gestión de pacientes, creación de planes alimenticios personalizados y seguimiento de resultados, mejorando significativamente la práctica profesional del nutriólogo.',
+        features: [
+          'Gestión completa de expedientes de pacientes',
+          'Creación de planes alimenticios personalizados',
+          'Cálculo automático de requerimientos nutricionales',
+          'Base de datos extensa de alimentos y valores nutricionales',
+          'Seguimiento de progreso con gráficas y métricas',
+          'Generación de dietas por objetivos (pérdida, ganancia, mantenimiento)',
+          'Recetarios y menús semanales',
+          'Recordatorios y seguimiento de citas'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // Achievement Modal Data
+    const achievementData = {
+      exposiencias: {
+        icon: '🏆',
+        title: 'Nacional de Exposiencias 2025',
+        category: 'Reconocimiento Nacional',
+        description: 'Orgulloso de haber llegado al Nacional de Exposiencias 2025 con el desarrollo de una plataforma oncológica innovadora. Este proyecto representa mi compromiso con la tecnología aplicada a la salud, creando soluciones que pueden impactar positivamente la vida de pacientes y profesionales médicos.',
+        features: [
+          'Plataforma oncológica con IA para diagnóstico asistido',
+          'Sistema de gestión de pacientes y tratamientos',
+          'Análisis predictivo de evolución de tratamientos',
+          'Interfaz intuitiva para profesionales de la salud',
+          'Cumplimiento de normativas de privacidad médica',
+          'Reconocimiento a nivel nacional por innovación'
+        ],
+        learnMoreUrl: ''
+      },
+      congresos: {
+        icon: '🎤',
+        title: 'Expositor en Congresos de Desarrollo Móvil',
+        category: 'Ponencias y Conferencias',
+        description: 'Participación activa como expositor en congresos especializados en desarrollo de aplicaciones móviles. Compartiendo conocimientos, mejores prácticas y experiencias con la comunidad de desarrolladores, contribuyendo al crecimiento del ecosistema tecnológico.',
+        features: [
+          'Ponencias sobre arquitectura de aplicaciones móviles',
+          'Talleres prácticos de React Native y desarrollo nativo',
+          'Presentaciones sobre optimización de rendimiento móvil',
+          'Compartir casos de éxito y lecciones aprendidas',
+          'Networking con profesionales del sector tecnológico',
+          'Contribución al conocimiento de la comunidad developer'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // AI Modal Data
+    const aiData = {
+      tool: {
+        icon: '🤖',
+        title: 'IA como Herramienta de Potenciación',
+        category: 'Inteligencia Artificial',
+        description: 'Como programador moderno, integro la inteligencia artificial de manera estratégica y responsable. No veo la IA como un reemplazo, sino como una herramienta poderosa que potencia mis capacidades y me permite crear soluciones más inteligentes.',
+        features: [
+          'Uso estratégico de IA para aumentar productividad',
+          'Integración de modelos de ML en aplicaciones',
+          'Automatización inteligente de tareas repetitivas',
+          'IA como asistente, no como reemplazo del desarrollador',
+          'Enfoque en crear valor real con tecnología IA',
+          'Balance entre automatización y control humano'
+        ],
+        learnMoreUrl: ''
+      },
+      ethics: {
+        icon: '🧠',
+        title: 'Implementación Ética y Efectiva',
+        category: 'Ética en IA',
+        description: 'Mi enfoque con la IA se basa en la implementación ética y con propósito. Utilizo modelos de machine learning, procesamiento de lenguaje natural y análisis predictivo cuando realmente aportan valor y mejoran la experiencia del usuario.',
+        features: [
+          'Implementación ética y transparente de IA',
+          'Machine Learning para análisis predictivo',
+          'Procesamiento de lenguaje natural (NLP)',
+          'Visión por computadora para análisis de imágenes',
+          'Privacidad y seguridad de datos como prioridad',
+          'IA explicable y auditable en aplicaciones críticas'
+        ],
+        learnMoreUrl: ''
+      },
+      innovation: {
+        icon: '⚡',
+        title: 'Innovación y Aprendizaje Continuo',
+        category: 'Actualización Tecnológica',
+        description: 'Me mantengo constantemente actualizado con las últimas tecnologías de IA, desde GPT y modelos de lenguaje hasta visión por computadora y análisis de datos. La innovación constante es clave en el mundo de la tecnología.',
+        features: [
+          'Actualización continua con últimas tecnologías IA',
+          'Experimentación con GPT y modelos de lenguaje',
+          'Exploración de nuevas herramientas y frameworks',
+          'Participación en comunidades de IA y ML',
+          'Proyectos personales para aprender nuevas técnicas',
+          'Adaptación rápida a cambios tecnológicos'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // Web Development Modal Data
+    const webData = {
+      corporate: {
+        icon: '🌐',
+        title: 'Sitios Web Empresariales',
+        category: 'Desarrollo Web Corporativo',
+        description: 'Desarrollo de sitios web corporativos modernos y responsivos que reflejan la identidad de tu negocio y atraen clientes. Cada sitio está optimizado para SEO, rendimiento y conversión.',
+        features: [
+          'Diseño responsivo para todos los dispositivos',
+          'Optimización SEO para mejor posicionamiento',
+          'Rendimiento optimizado y carga rápida',
+          'Integración con CMS para gestión de contenido',
+          'Formularios de contacto y captación de leads',
+          'Analytics y seguimiento de conversiones'
+        ],
+        learnMoreUrl: ''
+      },
+      webapp: {
+        icon: '💻',
+        title: 'Aplicaciones Web',
+        category: 'Sistemas Web Empresariales',
+        description: 'Sistemas web personalizados para empresas: CRM, ERP, dashboards y herramientas que optimizan procesos de negocio. Soluciones a medida que se adaptan a tus necesidades específicas.',
+        features: [
+          'CRM personalizado para gestión de clientes',
+          'ERP para control de recursos empresariales',
+          'Dashboards interactivos con datos en tiempo real',
+          'Automatización de procesos de negocio',
+          'Integraciones con sistemas existentes',
+          'Reportes y análisis de datos empresariales'
+        ],
+        learnMoreUrl: ''
+      },
+      ecommerce: {
+        icon: '🛒',
+        title: 'E-commerce',
+        category: 'Tiendas Online',
+        description: 'Tiendas online completas con pasarelas de pago, gestión de inventario y análisis de ventas para hacer crecer tu negocio. Plataformas seguras y escalables para vender en línea.',
+        features: [
+          'Catálogo de productos con búsqueda avanzada',
+          'Carrito de compras y checkout optimizado',
+          'Integración con múltiples pasarelas de pago',
+          'Gestión de inventario y stock en tiempo real',
+          'Panel de administración completo',
+          'Analytics de ventas y comportamiento de usuarios'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // Mobile Development Modal Data
+    const mobileData = {
+      native: {
+        icon: '📱',
+        title: 'Apps Nativas',
+        category: 'Desarrollo Móvil Nativo',
+        description: 'Desarrollo de aplicaciones iOS y Android con Swift y Kotlin, optimizadas para rendimiento máximo. Apps nativas que aprovechan al máximo las capacidades de cada plataforma.',
+        features: [
+          'Desarrollo nativo iOS con Swift y SwiftUI',
+          'Desarrollo nativo Android con Kotlin',
+          'Rendimiento óptimo y experiencia fluida',
+          'Acceso completo a APIs nativas del dispositivo',
+          'Diseño siguiendo guías de cada plataforma',
+          'Publicación en App Store y Google Play'
+        ],
+        learnMoreUrl: ''
+      },
+      reactnative: {
+        icon: '⚡',
+        title: 'React Native',
+        category: 'Desarrollo Multiplataforma',
+        description: 'Aplicaciones multiplataforma con código compartido, reduciendo tiempos de desarrollo hasta un 40%. Una sola base de código para iOS y Android sin sacrificar calidad.',
+        features: [
+          'Código compartido entre iOS y Android',
+          'Reducción de tiempo de desarrollo hasta 40%',
+          'Rendimiento cercano a apps nativas',
+          'Hot reload para desarrollo rápido',
+          'Amplio ecosistema de librerías',
+          'Mantenimiento simplificado de una sola base de código'
+        ],
+        learnMoreUrl: ''
+      },
+      uiux: {
+        icon: '🎨',
+        title: 'UI/UX Móvil',
+        category: 'Diseño de Experiencia Móvil',
+        description: 'Diseño de interfaces intuitivas siguiendo las guías de Material Design y Human Interface Guidelines. Experiencias móviles que los usuarios aman usar.',
+        features: [
+          'Diseño siguiendo Material Design (Android)',
+          'Diseño siguiendo HIG (iOS)',
+          'Interfaces intuitivas y fáciles de usar',
+          'Animaciones y transiciones fluidas',
+          'Accesibilidad para todos los usuarios',
+          'Testing de usabilidad y mejora continua'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // Skill Modal Data
+    const skillsData = {
+      react: {
+        icon: '⚛️',
+        title: 'React',
+        category: 'Biblioteca JavaScript',
+        description: 'React es una biblioteca de JavaScript desarrollada por Facebook para construir interfaces de usuario interactivas y dinámicas. Utiliza un enfoque basado en componentes que permite crear aplicaciones web modernas de manera eficiente y escalable.',
+        features: [
+          'Componentes reutilizables que facilitan el mantenimiento',
+          'Virtual DOM para rendimiento óptimo y actualizaciones rápidas',
+          'Ecosistema robusto con miles de librerías complementarias',
+          'JSX para escribir HTML dentro de JavaScript',
+          'Hooks para gestionar estado y efectos secundarios'
+        ],
+        learnMoreUrl: 'https://react.dev/'
+      },
+      nodejs: {
+        icon: '📗',
+        title: 'Node.js',
+        category: 'Entorno de Ejecución JavaScript',
+        description: 'Node.js es un entorno de ejecución de JavaScript del lado del servidor construido sobre el motor V8 de Chrome. Permite ejecutar JavaScript fuera del navegador, ideal para crear aplicaciones backend escalables y de alto rendimiento.',
+        features: [
+          'Arquitectura orientada a eventos y no bloqueante',
+          'NPM: el gestor de paquetes más grande del mundo',
+          'Perfecto para aplicaciones en tiempo real',
+          'Excelente rendimiento para operaciones I/O',
+          'Comunidad activa y en constante crecimiento'
+        ],
+        learnMoreUrl: 'https://nodejs.org/'
+      },
+      android: {
+        icon: '🤖',
+        title: 'Android Studio',
+        category: 'IDE para Desarrollo Android',
+        description: 'Android Studio es el entorno de desarrollo integrado oficial para la plataforma Android. Proporciona todas las herramientas necesarias para crear aplicaciones móviles nativas para dispositivos Android, desde smartphones hasta tablets y wearables.',
+        features: [
+          'Editor de código inteligente con autocompletado',
+          'Emulador rápido para probar aplicaciones',
+          'Herramientas de diseño visual para interfaces',
+          'Soporte completo para Kotlin y Java',
+          'Integración con Firebase y Google Cloud'
+        ],
+        learnMoreUrl: 'https://developer.android.com/studio'
+      },
+      xcode: {
+        icon: '🍎',
+        title: 'Xcode',
+        category: 'IDE para Desarrollo iOS',
+        description: 'Xcode es el entorno de desarrollo integrado de Apple para crear aplicaciones para iOS, iPadOS, macOS, watchOS y tvOS. Incluye todas las herramientas necesarias para diseñar, desarrollar y publicar apps en el ecosistema Apple.',
+        features: [
+          'Interface Builder para diseño visual de interfaces',
+          'Simulador de iOS para pruebas rápidas',
+          'Soporte completo para Swift y Objective-C',
+          'Instruments para análisis de rendimiento',
+          'Integración directa con App Store Connect'
+        ],
+        learnMoreUrl: 'https://developer.apple.com/xcode/'
+      },
+      html: {
+        icon: '🌐',
+        title: 'HTML',
+        category: 'Lenguaje de Marcado',
+        description: 'HTML (HyperText Markup Language) es el lenguaje de marcado estándar para crear páginas web. Define la estructura y el contenido de las páginas web mediante elementos y etiquetas, siendo la base fundamental de cualquier sitio web.',
+        features: [
+          'Estructura semántica para mejor accesibilidad',
+          'Compatible con todos los navegadores modernos',
+          'Fácil de aprender y usar',
+          'Base fundamental del desarrollo web',
+          'HTML5 incluye APIs modernas para multimedia y gráficos'
+        ],
+        learnMoreUrl: 'https://developer.mozilla.org/es/docs/Web/HTML'
+      },
+      css: {
+        icon: '🎨',
+        title: 'CSS / Tailwind',
+        category: 'Lenguaje de Estilos',
+        description: 'CSS (Cascading Style Sheets) es el lenguaje utilizado para dar estilo y diseño a las páginas web. Tailwind CSS es un framework de utilidades que permite crear diseños personalizados rápidamente sin salir del HTML.',
+        features: [
+          'Control total sobre el diseño visual',
+          'Responsive design para todos los dispositivos',
+          'Animaciones y transiciones fluidas',
+          'Tailwind: desarrollo rápido con clases de utilidad',
+          'Flexbox y Grid para layouts modernos'
+        ],
+        learnMoreUrl: 'https://tailwindcss.com/'
+      },
+      mongodb: {
+        icon: '💾',
+        title: 'MongoDB',
+        category: 'Base de Datos NoSQL',
+        description: 'MongoDB es una base de datos NoSQL orientada a documentos que almacena datos en formato JSON flexible. Es ideal para aplicaciones modernas que requieren escalabilidad horizontal y esquemas de datos dinámicos.',
+        features: [
+          'Esquema flexible que se adapta a tus necesidades',
+          'Escalabilidad horizontal mediante sharding',
+          'Consultas potentes y agregaciones complejas',
+          'Alta disponibilidad con replicación',
+          'Perfecto para aplicaciones en tiempo real'
+        ],
+        learnMoreUrl: 'https://www.mongodb.com/'
+      },
+      postgresql: {
+        icon: '🐘',
+        title: 'PostgreSQL',
+        category: 'Base de Datos Relacional',
+        description: 'PostgreSQL es un sistema de gestión de bases de datos relacional de código abierto, conocido por su robustez, confiabilidad y cumplimiento de estándares SQL. Es ideal para aplicaciones empresariales que requieren integridad de datos.',
+        features: [
+          'Cumplimiento completo de ACID',
+          'Soporte para JSON y datos no estructurados',
+          'Extensible con funciones personalizadas',
+          'Excelente rendimiento en consultas complejas',
+          'Comunidad activa y documentación extensa'
+        ],
+        learnMoreUrl: 'https://www.postgresql.org/'
+      },
+      typescript: {
+        icon: '🔷',
+        title: 'TypeScript',
+        category: 'Lenguaje de Programación',
+        description: 'TypeScript es un superconjunto de JavaScript que añade tipado estático opcional. Desarrollado por Microsoft, ayuda a detectar errores en tiempo de desarrollo y mejora la experiencia de desarrollo con autocompletado inteligente.',
+        features: [
+          'Tipado estático para código más seguro',
+          'Autocompletado inteligente en el IDE',
+          'Detección de errores en tiempo de desarrollo',
+          'Compatible con todo el ecosistema JavaScript',
+          'Ideal para proyectos grandes y equipos'
+        ],
+        learnMoreUrl: 'https://www.typescriptlang.org/'
+      },
+      docker: {
+        icon: '🐳',
+        title: 'Docker',
+        category: 'Plataforma de Contenedores',
+        description: 'Docker es una plataforma de contenedores que permite empaquetar aplicaciones con todas sus dependencias en contenedores ligeros y portables. Facilita el desarrollo, despliegue y escalado de aplicaciones en cualquier entorno.',
+        features: [
+          'Contenedores ligeros y portables',
+          'Aislamiento de aplicaciones y dependencias',
+          'Despliegue consistente en cualquier entorno',
+          'Escalabilidad horizontal simplificada',
+          'Integración con Kubernetes y orquestadores'
+        ],
+        learnMoreUrl: 'https://www.docker.com/'
+      },
+      aws: {
+        icon: '☁️',
+        title: 'AWS',
+        category: 'Plataforma Cloud',
+        description: 'Amazon Web Services (AWS) es la plataforma de servicios en la nube más completa y ampliamente adoptada. Ofrece más de 200 servicios desde centros de datos en todo el mundo, permitiendo escalar y crecer aplicaciones de manera flexible.',
+        features: [
+          'Más de 200 servicios cloud disponibles',
+          'Infraestructura global en múltiples regiones',
+          'Pago por uso sin compromisos a largo plazo',
+          'Alta disponibilidad y redundancia',
+          'Servicios de IA, ML, IoT y más'
+        ],
+        learnMoreUrl: 'https://aws.amazon.com/'
+      },
+      java: {
+        icon: '☕',
+        title: 'Java',
+        category: 'Lenguaje de Programación',
+        description: 'Java es un lenguaje de programación orientado a objetos, robusto y multiplataforma. Con más de 25 años de historia, es uno de los lenguajes más utilizados en el mundo empresarial para desarrollar aplicaciones de backend, sistemas empresariales y aplicaciones Android.',
+        features: [
+          'Multiplataforma: "Write Once, Run Anywhere"',
+          'Orientado a objetos con tipado fuerte',
+          'Amplio ecosistema de frameworks (Spring, Hibernate)',
+          'Excelente para aplicaciones empresariales',
+          'Base del desarrollo Android nativo',
+          'Gran rendimiento y escalabilidad'
+        ],
+        learnMoreUrl: 'https://www.java.com/'
+      },
+      python: {
+        icon: '🐍',
+        title: 'Python',
+        category: 'Lenguaje de Programación',
+        description: 'Python es un lenguaje de programación de alto nivel, interpretado y de propósito general. Conocido por su sintaxis clara y legible, es ideal para desarrollo web, ciencia de datos, inteligencia artificial, automatización y más. Su filosofía enfatiza la legibilidad del código.',
+        features: [
+          'Sintaxis clara y fácil de aprender',
+          'Amplio uso en IA, Machine Learning y Data Science',
+          'Frameworks web potentes (Django, Flask, FastAPI)',
+          'Excelente para automatización y scripting',
+          'Enorme ecosistema de librerías (NumPy, Pandas, TensorFlow)',
+          'Comunidad activa y documentación extensa'
+        ],
+        learnMoreUrl: 'https://www.python.org/'
+      },
+      php: {
+        icon: '🐘',
+        title: 'PHP',
+        category: 'Lenguaje de Programación',
+        description: 'PHP es un lenguaje de programación del lado del servidor diseñado específicamente para desarrollo web. Potencia millones de sitios web incluyendo WordPress, y es conocido por su facilidad de integración con bases de datos y su amplia adopción en hosting web.',
+        features: [
+          'Diseñado específicamente para desarrollo web',
+          'Fácil integración con MySQL y otras bases de datos',
+          'Base de WordPress, Drupal y muchos CMS populares',
+          'Frameworks modernos (Laravel, Symfony, CodeIgniter)',
+          'Amplio soporte en servicios de hosting',
+          'Gran comunidad y recursos de aprendizaje'
+        ],
+        learnMoreUrl: 'https://www.php.net/'
+      },
+      networking: {
+        icon: '🌐',
+        title: 'Redes y Comunicaciones',
+        category: 'Infraestructura de Red',
+        description: 'Conocimientos sólidos en redes de computadoras, protocolos de comunicación y arquitecturas de red. Comprensión profunda de cómo funcionan las redes modernas, desde el modelo OSI hasta implementaciones prácticas de redes empresariales.',
+        features: [
+          'Modelo OSI y TCP/IP en profundidad',
+          'Protocolos de red: HTTP, HTTPS, FTP, SSH, DNS',
+          'Configuración de VLANs y subredes',
+          'Routing y switching avanzado',
+          'Seguridad de red y firewalls',
+          'Diagnóstico y troubleshooting de problemas de red'
+        ],
+        learnMoreUrl: ''
+      },
+      netadmin: {
+        icon: '🔧',
+        title: 'Administración de Redes',
+        category: 'Gestión de Infraestructura',
+        description: 'Experiencia en administración y gestión de infraestructuras de red empresariales. Capacidad para diseñar, implementar y mantener redes seguras y eficientes que soporten las operaciones críticas del negocio.',
+        features: [
+          'Configuración de routers y switches (Cisco, MikroTik)',
+          'Gestión de servidores DHCP y DNS',
+          'Implementación de VPNs para acceso remoto seguro',
+          'Monitoreo de red y análisis de tráfico',
+          'Backup y recuperación de configuraciones',
+          'Optimización de rendimiento de red',
+          'Documentación de infraestructura de red'
+        ],
+        learnMoreUrl: ''
+      }
+    };
+
+    // Modal functionality
+    const modal = document.getElementById('skillModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalLearnMore = document.getElementById('modalLearnMore');
+    
+    let currentUrl = '';
+
+    function openModal(data) {
+      if (!data) return;
+
+      // Update modal content
+      document.getElementById('modalIcon').textContent = data.icon;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalCategory').textContent = data.category;
+      document.getElementById('modalDescription').textContent = data.description;
+
+      // Update features list
+      const featuresList = document.getElementById('modalFeatures');
+      featuresList.innerHTML = '';
+      data.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.textContent = feature;
+        featuresList.appendChild(li);
+      });
+
+      currentUrl = data.learnMoreUrl;
+
+      // Show/hide learn more button based on URL
+      if (currentUrl) {
+        modalLearnMore.style.display = 'block';
+      } else {
+        modalLearnMore.style.display = 'none';
+      }
+
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Event listeners for all clickable cards
+    
+    // Projects cards
+    document.querySelectorAll('.about-card[data-project]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-project');
+        openModal(projectsData[key]);
+      });
+    });
+    
+    // Experience cards
+    document.querySelectorAll('.experience-card[data-experience]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-experience');
+        openModal(experienceData[key]);
+      });
+    });
+
+    // About cards
+    document.querySelectorAll('.about-card[data-about]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-about');
+        openModal(aboutData[key]);
+      });
+    });
+
+    // Philosophy cards
+    document.querySelectorAll('.about-card[data-philosophy]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-philosophy');
+        openModal(philosophyData[key]);
+      });
+    });
+
+    // Achievement cards
+    document.querySelectorAll('.about-card[data-achievement]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-achievement');
+        openModal(achievementData[key]);
+      });
+    });
+
+    // AI features
+    document.querySelectorAll('.mobile-feature[data-ai]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-ai');
+        openModal(aiData[key]);
+      });
+    });
+
+    // Web development features
+    document.querySelectorAll('.mobile-feature[data-web]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-web');
+        openModal(webData[key]);
+      });
+    });
+
+    // Mobile development features
+    document.querySelectorAll('.mobile-feature[data-mobile]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-mobile');
+        openModal(mobileData[key]);
+      });
+    });
+
+    // Skill cards
+    document.querySelectorAll('.skill-card[data-skill]').forEach(card => {
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-skill');
+        openModal(skillsData[key]);
+      });
+    });
+
+    // Close modal events
+    modalClose.addEventListener('click', closeModal);
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Learn more button
+    modalLearnMore.addEventListener('click', () => {
+      if (currentUrl) {
+        window.open(currentUrl, '_blank', 'noopener,noreferrer');
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // AI Processor Chipset 3D Animation
+    const canvas = document.getElementById('neuralCanvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      canvas.width = 500;
+      canvas.height = 500;
+
+      // Processor Core class
+      class ProcessorCore {
+        constructor(x, y, size, index) {
+          this.x = x;
+          this.y = y;
+          this.z = 0;
+          this.size = size;
+          this.index = index;
+          this.activity = Math.random();
+          this.pulsePhase = Math.random() * Math.PI * 2;
+          this.heat = 0;
+        }
+
+        update(time) {
+          this.activity = Math.sin(time * 0.002 + this.index * 0.5) * 0.3 + 0.7;
+          this.pulsePhase += 0.08;
+          this.heat = Math.sin(time * 0.001 + this.index) * 0.5 + 0.5;
+        }
+
+        project(rotX, rotY) {
+          const cosY = Math.cos(rotY);
+          const sinY = Math.sin(rotY);
+          const cosX = Math.cos(rotX);
+          const sinX = Math.sin(rotX);
+
+          const tempX = this.x * cosY - this.z * sinY;
+          const tempZ = this.x * sinY + this.z * cosY;
+          const rotatedY = this.y * cosX - tempZ * sinX;
+          const rotatedZ = this.y * sinX + tempZ * cosX;
+
+          const scale = 300 / (300 + rotatedZ);
+          return {
+            x: tempX * scale + canvas.width / 2,
+            y: rotatedY * scale + canvas.height / 2,
+            scale: scale,
+            z: rotatedZ
+          };
+        }
+      }
+
+      // Circuit trace class
+      class CircuitTrace {
+        constructor(x1, y1, x2, y2, type) {
+          this.x1 = x1;
+          this.y1 = y1;
+          this.x2 = x2;
+          this.y2 = y2;
+          this.z = 0;
+          this.type = type; // 'horizontal', 'vertical', 'diagonal'
+          this.dataFlow = Math.random();
+          this.flowSpeed = 0.02 + Math.random() * 0.03;
+        }
+
+        update() {
+          this.dataFlow += this.flowSpeed;
+          if (this.dataFlow > 1) this.dataFlow = 0;
+        }
+
+        project(rotX, rotY) {
+          const cosY = Math.cos(rotY);
+          const sinY = Math.sin(rotY);
+          const cosX = Math.cos(rotX);
+          const sinX = Math.sin(rotX);
+
+          const projectPoint = (x, y, z) => {
+            const tempX = x * cosY - z * sinY;
+            const tempZ = x * sinY + z * cosY;
+            const rotatedY = y * cosX - tempZ * sinX;
+            const rotatedZ = y * sinX + tempZ * cosX;
+            const scale = 300 / (300 + rotatedZ);
+            return {
+              x: tempX * scale + canvas.width / 2,
+              y: rotatedY * scale + canvas.height / 2,
+              z: rotatedZ
+            };
+          };
+
+          return {
+            start: projectPoint(this.x1, this.y1, this.z),
+            end: projectPoint(this.x2, this.y2, this.z)
+          };
+        }
+      }
+
+      // Create processor cores in a grid
+      const cores = [];
+      const coreGridSize = 4;
+      const coreSpacing = 80;
+      const coreSize = 25;
+      
+      for (let i = 0; i < coreGridSize; i++) {
+        for (let j = 0; j < coreGridSize; j++) {
+          const x = (i - coreGridSize / 2 + 0.5) * coreSpacing;
+          const y = (j - coreGridSize / 2 + 0.5) * coreSpacing;
+          cores.push(new ProcessorCore(x, y, coreSize, i * coreGridSize + j));
+        }
+      }
+
+      // Create circuit traces connecting cores
+      const traces = [];
+      
+      // Horizontal traces
+      for (let j = 0; j < coreGridSize; j++) {
+        for (let i = 0; i < coreGridSize - 1; i++) {
+          const core1 = cores[j * coreGridSize + i];
+          const core2 = cores[j * coreGridSize + i + 1];
+          traces.push(new CircuitTrace(core1.x, core1.y, core2.x, core2.y, 'horizontal'));
+        }
+      }
+
+      // Vertical traces
+      for (let i = 0; i < coreGridSize; i++) {
+        for (let j = 0; j < coreGridSize - 1; j++) {
+          const core1 = cores[j * coreGridSize + i];
+          const core2 = cores[(j + 1) * coreGridSize + i];
+          traces.push(new CircuitTrace(core1.x, core1.y, core2.x, core2.y, 'vertical'));
+        }
+      }
+
+      // Diagonal traces for AI pathways
+      for (let i = 0; i < coreGridSize - 1; i++) {
+        for (let j = 0; j < coreGridSize - 1; j++) {
+          const core1 = cores[j * coreGridSize + i];
+          const core2 = cores[(j + 1) * coreGridSize + i + 1];
+          traces.push(new CircuitTrace(core1.x, core1.y, core2.x, core2.y, 'diagonal'));
+        }
+      }
+
+      // Create outer chip boundary
+      const chipSize = 220;
+      const chipCorners = [
+        { x: -chipSize, y: -chipSize, z: -5 },
+        { x: chipSize, y: -chipSize, z: -5 },
+        { x: chipSize, y: chipSize, z: -5 },
+        { x: -chipSize, y: chipSize, z: -5 }
+      ];
+
+      // Create chip pins
+      const pins = [];
+      const pinCount = 12;
+      const pinLength = 30;
+      
+      for (let i = 0; i < pinCount; i++) {
+        // Top pins
+        pins.push({
+          x: -chipSize + (i / (pinCount - 1)) * chipSize * 2,
+          y: -chipSize,
+          z: -5,
+          endY: -chipSize - pinLength
+        });
+        // Bottom pins
+        pins.push({
+          x: -chipSize + (i / (pinCount - 1)) * chipSize * 2,
+          y: chipSize,
+          z: -5,
+          endY: chipSize + pinLength
+        });
+        // Left pins
+        pins.push({
+          x: -chipSize,
+          y: -chipSize + (i / (pinCount - 1)) * chipSize * 2,
+          z: -5,
+          endX: -chipSize - pinLength
+        });
+        // Right pins
+        pins.push({
+          x: chipSize,
+          y: -chipSize + (i / (pinCount - 1)) * chipSize * 2,
+          z: -5,
+          endX: chipSize + pinLength
+        });
+      }
+
+      let rotation = 0;
+      let time = 0;
+      let userRotationX = 0.3;
+      let userRotationY = 0.4;
+      let isChipDragging = false;
+      let chipStartX = 0;
+      let chipStartY = 0;
+
+      // Interactive chip controls
+      const chipContainer = document.querySelector('.neural-network-3d');
+      
+      chipContainer.addEventListener('mousedown', (e) => {
+        isChipDragging = true;
+        chipStartX = e.clientX;
+        chipStartY = e.clientY;
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (!isChipDragging) return;
+        const deltaX = e.clientX - chipStartX;
+        const deltaY = e.clientY - chipStartY;
+        userRotationY += deltaX * 0.01;
+        userRotationX += deltaY * 0.01;
+        chipStartX = e.clientX;
+        chipStartY = e.clientY;
+      });
+
+      document.addEventListener('mouseup', () => {
+        isChipDragging = false;
+      });
+
+      // Touch support
+      chipContainer.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        isChipDragging = true;
+        chipStartX = touch.clientX;
+        chipStartY = touch.clientY;
+      });
+
+      document.addEventListener('touchmove', (e) => {
+        if (!isChipDragging) return;
+        const touch = e.touches[0];
+        const deltaX = touch.clientX - chipStartX;
+        const deltaY = touch.clientY - chipStartY;
+        userRotationY += deltaX * 0.01;
+        userRotationX += deltaY * 0.01;
+        chipStartX = touch.clientX;
+        chipStartY = touch.clientY;
+      });
+
+      document.addEventListener('touchend', () => {
+        isChipDragging = false;
+      });
+
+      function animate() {
+        ctx.fillStyle = 'rgba(15, 15, 30, 0.15)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        rotation += 0.005;
+        time += 1;
+
+        const totalRotationY = rotation + userRotationY;
+        const totalRotationX = userRotationX;
+
+        // Update all elements
+        cores.forEach(core => core.update(time));
+        traces.forEach(trace => trace.update());
+
+        // Project chip boundary
+        const projectChipPoint = (point) => {
+          const cosY = Math.cos(totalRotationY);
+          const sinY = Math.sin(totalRotationY);
+          const cosX = Math.cos(totalRotationX);
+          const sinX = Math.sin(totalRotationX);
+
+          const tempX = point.x * cosY - point.z * sinY;
+          const tempZ = point.x * sinY + point.z * cosY;
+          const rotatedY = point.y * cosX - tempZ * sinX;
+          const rotatedZ = point.y * sinX + tempZ * cosX;
+
+          const scale = 300 / (300 + rotatedZ);
+          return {
+            x: tempX * scale + canvas.width / 2,
+            y: rotatedY * scale + canvas.height / 2,
+            z: rotatedZ
+          };
+        };
+
+        const projectedCorners = chipCorners.map(projectChipPoint);
+
+        // Draw chip substrate (base layer)
+        ctx.fillStyle = 'rgba(20, 20, 35, 0.9)';
+        ctx.strokeStyle = 'rgba(102, 126, 234, 0.6)';
+        ctx.lineWidth = 3;
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = 'rgba(102, 126, 234, 0.5)';
+        
+        ctx.beginPath();
+        ctx.moveTo(projectedCorners[0].x, projectedCorners[0].y);
+        for (let i = 1; i < projectedCorners.length; i++) {
+          ctx.lineTo(projectedCorners[i].x, projectedCorners[i].y);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // Draw chip pins
+        pins.forEach(pin => {
+          const start = projectChipPoint(pin);
+          const end = projectChipPoint({
+            x: pin.endX !== undefined ? pin.endX : pin.x,
+            y: pin.endY !== undefined ? pin.endY : pin.y,
+            z: pin.z
+          });
+
+          const gradient = ctx.createLinearGradient(start.x, start.y, end.x, end.y);
+          gradient.addColorStop(0, 'rgba(180, 180, 200, 0.8)');
+          gradient.addColorStop(1, 'rgba(120, 120, 140, 0.4)');
+
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(start.x, start.y);
+          ctx.lineTo(end.x, end.y);
+          ctx.stroke();
+        });
+
+        // Draw circuit traces with data flow
+        traces.forEach(trace => {
+          const projected = trace.project(totalRotationX, totalRotationY);
+          
+          // Base trace line
+          ctx.strokeStyle = 'rgba(102, 126, 234, 0.3)';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(projected.start.x, projected.start.y);
+          ctx.lineTo(projected.end.x, projected.end.y);
+          ctx.stroke();
+
+          // Data flow particle
+          const flowX = projected.start.x + (projected.end.x - projected.start.x) * trace.dataFlow;
+          const flowY = projected.start.y + (projected.end.y - projected.start.y) * trace.dataFlow;
+
+          const particleGradient = ctx.createRadialGradient(flowX, flowY, 0, flowX, flowY, 8);
+          particleGradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+          particleGradient.addColorStop(0.5, 'rgba(102, 126, 234, 0.7)');
+          particleGradient.addColorStop(1, 'rgba(102, 126, 234, 0)');
+
+          ctx.fillStyle = particleGradient;
+          ctx.beginPath();
+          ctx.arc(flowX, flowY, 8, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        // Draw processor cores
+        cores.forEach(core => {
+          const pos = core.project(totalRotationX, totalRotationY);
+          const size = core.size * pos.scale;
+          const pulse = Math.sin(core.pulsePhase) * 0.3 + 0.7;
+          const activity = core.activity;
+
+          // Core outer glow
+          const outerGlow = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, size * 2.5);
+          outerGlow.addColorStop(0, `rgba(102, 126, 234, ${activity * 0.6 * pulse})`);
+          outerGlow.addColorStop(0.5, `rgba(102, 126, 234, ${activity * 0.3 * pulse})`);
+          outerGlow.addColorStop(1, 'rgba(102, 126, 234, 0)');
+
+          ctx.fillStyle = outerGlow;
+          ctx.beginPath();
+          ctx.arc(pos.x, pos.y, size * 2.5, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Core body with heat map
+          const heatColor = core.heat > 0.5 ? 
+            `rgba(${100 + core.heat * 155}, ${126 - core.heat * 50}, 234, ${activity})` :
+            `rgba(102, 126, 234, ${activity})`;
+
+          const coreGradient = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, size);
+          coreGradient.addColorStop(0, `rgba(255, 255, 255, ${activity * pulse})`);
+          coreGradient.addColorStop(0.4, heatColor);
+          coreGradient.addColorStop(1, `rgba(50, 50, 80, ${activity})`);
+
+          ctx.fillStyle = coreGradient;
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = heatColor;
+          ctx.beginPath();
+          ctx.arc(pos.x, pos.y, size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          // Core center highlight
+          ctx.fillStyle = `rgba(255, 255, 255, ${activity * pulse * 0.8})`;
+          ctx.beginPath();
+          ctx.arc(pos.x, pos.y, size * 0.3, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Activity indicator lines
+          if (activity > 0.6) {
+            ctx.strokeStyle = `rgba(255, 255, 255, ${(activity - 0.6) * 2 * pulse})`;
+            ctx.lineWidth = 1;
+            for (let i = 0; i < 4; i++) {
+              const angle = (time * 0.05 + i * Math.PI / 2);
+              const x1 = pos.x + Math.cos(angle) * size * 0.5;
+              const y1 = pos.y + Math.sin(angle) * size * 0.5;
+              const x2 = pos.x + Math.cos(angle) * size * 1.3;
+              const y2 = pos.y + Math.sin(angle) * size * 1.3;
+              
+              ctx.beginPath();
+              ctx.moveTo(x1, y1);
+              ctx.lineTo(x2, y2);
+              ctx.stroke();
+            }
+          }
+        });
+
+        // Draw AI logo in center
+        const centerPulse = Math.sin(time * 0.03) * 0.3 + 0.7;
+        ctx.font = 'bold 48px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        ctx.shadowBlur = 30;
+        ctx.shadowColor = 'rgba(102, 126, 234, 0.8)';
+        ctx.fillStyle = `rgba(255, 255, 255, ${centerPulse})`;
+        ctx.fillText('AI', canvas.width / 2, canvas.height / 2);
+        ctx.shadowBlur = 0;
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      // Animate stats
+      let statsCounter = 0;
+      setInterval(() => {
+        statsCounter++;
+        const nodesCount = document.getElementById('nodes-count');
+        const connectionsCount = document.getElementById('connections-count');
+        const accuracy = document.getElementById('accuracy');
+
+        if (nodesCount) {
+          nodesCount.textContent = 128 + Math.floor(Math.sin(statsCounter * 0.1) * 10);
+        }
+        if (connectionsCount) {
+          connectionsCount.textContent = 384 + Math.floor(Math.cos(statsCounter * 0.15) * 20);
+        }
+        if (accuracy) {
+          const acc = 98.7 + Math.sin(statsCounter * 0.08) * 0.5;
+          accuracy.textContent = acc.toFixed(1) + '%';
+        }
+      }, 100);
+    }
+
+    // Interactive iPhone rotation with touch support
+    const iphone = document.querySelector('.iphone');
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let currentRotationY = 0;
+    let currentRotationX = 5;
+
+    function startDrag(clientX, clientY) {
+      isDragging = true;
+      startX = clientX;
+      startY = clientY;
+      iphone.style.cursor = 'grabbing';
+    }
+
+    function drag(clientX, clientY) {
+      if (!isDragging) return;
+      const deltaX = clientX - startX;
+      const deltaY = clientY - startY;
+      currentRotationY += deltaX * 0.5;
+      currentRotationX -= deltaY * 0.3;
+      currentRotationX = Math.max(-30, Math.min(30, currentRotationX));
+      iphone.style.transform = `rotateY(${currentRotationY}deg) rotateX(${currentRotationX}deg)`;
+      startX = clientX;
+      startY = clientY;
+    }
+
+    function endDrag() {
+      if (isDragging) {
+        isDragging = false;
+        iphone.style.cursor = 'grab';
+        iphone.style.animation = 'rotate3d 20s infinite linear';
+      }
+    }
+
+    // Mouse events
+    iphone.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      startDrag(e.clientX, e.clientY);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      drag(e.clientX, e.clientY);
+    });
+
+    document.addEventListener('mouseup', endDrag);
+
+    // Touch events
+    iphone.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      startDrag(touch.clientX, touch.clientY);
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const touch = e.touches[0];
+      drag(touch.clientX, touch.clientY);
+    });
+
+    document.addEventListener('touchend', endDrag);
+
+    // Interactive Desktop Computer
+    const desktopComputer = document.querySelector('.desktop-computer');
+    let isDesktopDragging = false;
+    let desktopStartX = 0;
+    let desktopStartY = 0;
+    let desktopRotationY = -15;
+    let desktopRotationX = 5;
+
+    function startDesktopDrag(clientX, clientY) {
+      isDesktopDragging = true;
+      desktopStartX = clientX;
+      desktopStartY = clientY;
+      desktopComputer.style.cursor = 'grabbing';
+    }
+
+    function dragDesktop(clientX, clientY) {
+      if (!isDesktopDragging) return;
+      const deltaX = clientX - desktopStartX;
+      const deltaY = clientY - desktopStartY;
+      desktopRotationY += deltaX * 0.3;
+      desktopRotationX -= deltaY * 0.2;
+      desktopRotationX = Math.max(-20, Math.min(20, desktopRotationX));
+      desktopComputer.style.transform = `rotateY(${desktopRotationY}deg) rotateX(${desktopRotationX}deg)`;
+      desktopStartX = clientX;
+      desktopStartY = clientY;
+    }
+
+    function endDesktopDrag() {
+      if (isDesktopDragging) {
+        isDesktopDragging = false;
+        desktopComputer.style.cursor = 'grab';
+        desktopComputer.style.animation = 'rotateDesktop 25s infinite linear';
+      }
+    }
+
+    // Mouse events for desktop
+    desktopComputer.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      startDesktopDrag(e.clientX, e.clientY);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      dragDesktop(e.clientX, e.clientY);
+    });
+
+    document.addEventListener('mouseup', () => {
+      endDesktopDrag();
+    });
+
+    // Touch events for desktop
+    desktopComputer.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      startDesktopDrag(touch.clientX, touch.clientY);
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDesktopDragging) return;
+      const touch = e.touches[0];
+      dragDesktop(touch.clientX, touch.clientY);
+    });
+
+    document.addEventListener('touchend', () => {
+      endDesktopDrag();
+    });
+
+    // Element SDK Configuration
+    const defaultConfig = {
+      developer_name: "Alex Martínez",
+      job_title: "Full Stack Developer",
+      bio_text: "Desarrollador apasionado con 5+ años de experiencia creando aplicaciones web modernas y escalables. Especializado en JavaScript, React y Node.js.",
+      experience_title: "Experiencia",
+      about_title: "Sobre Mí",
+      work_philosophy_title: "Filosofía de Trabajo",
+      projects_title: "Proyectos Destacados",
+      achievements_title: "Logros Destacados",
+      ai_integration_title: "Integración de Inteligencia Artificial",
+      web_title: "Desarrollo Web",
+      mobile_title: "Desarrollo Móvil",
+      skills_title: "Habilidades",
+      contact_title: "Contacto",
+      background_color: "#0f0f1e",
+      accent_color: "#667eea",
+      text_color: "#e0e0e0",
+      card_background: "rgba(255, 255, 255, 0.03)",
+      font_family: "Inter",
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      const baseSize = config.font_size || defaultConfig.font_size;
+
+      // Update font family
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+      // Update text content
+      document.getElementById('developer-name').textContent = config.developer_name || defaultConfig.developer_name;
+      document.getElementById('job-title').textContent = config.job_title || defaultConfig.job_title;
+      document.getElementById('bio-text').textContent = config.bio_text || defaultConfig.bio_text;
+      document.getElementById('experience-title').textContent = config.experience_title || defaultConfig.experience_title;
+      document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
+      document.getElementById('work-philosophy-title').textContent = config.work_philosophy_title || defaultConfig.work_philosophy_title;
+      document.getElementById('projects-title').textContent = config.projects_title || defaultConfig.projects_title;
+      document.getElementById('achievements-title').textContent = config.achievements_title || defaultConfig.achievements_title;
+      document.getElementById('ai-integration-title').textContent = config.ai_integration_title || defaultConfig.ai_integration_title;
+      document.getElementById('web-title').textContent = config.web_title || defaultConfig.web_title;
+      document.getElementById('mobile-title').textContent = config.mobile_title || defaultConfig.mobile_title;
+      document.getElementById('skills-title').textContent = config.skills_title || defaultConfig.skills_title;
+      document.getElementById('contact-title').textContent = config.contact_title || defaultConfig.contact_title;
+
+      // Update colors
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const cardBackground = config.card_background || defaultConfig.card_background;
+
+      document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, #1a1a2e 100%)`;
+      document.body.style.color = textColor;
+
+      // Update accent colors
+      document.querySelectorAll('.profile-image, .contact-icon, .mobile-feature-icon').forEach(el => {
+        el.style.background = `linear-gradient(135deg, ${accentColor} 0%, #764ba2 100%)`;
+      });
+
+      const style = document.createElement('style');
+      style.textContent = `
+        .section-title::before {
+          background: linear-gradient(135deg, ${accentColor} 0%, #764ba2 100%) !important;
+        }
+      `;
+      document.head.appendChild(style);
+
+      document.querySelectorAll('.experience-card, .skill-card, .contact-item, .mobile-feature').forEach(el => {
+        el.style.background = cardBackground;
+      });
+
+      // Update font sizes
+      document.querySelector('.name').style.fontSize = `${baseSize * 3}px`;
+      document.querySelector('.title').style.fontSize = `${baseSize * 1.5}px`;
+      document.querySelector('.bio').style.fontSize = `${baseSize}px`;
+      document.querySelectorAll('.section-title').forEach(el => {
+        el.style.fontSize = `${baseSize * 2}px`;
+      });
+      document.querySelectorAll('.experience-role').forEach(el => {
+        el.style.fontSize = `${baseSize * 1.25}px`;
+      });
+      document.querySelectorAll('.experience-company, .contact-value').forEach(el => {
+        el.style.fontSize = `${baseSize}px`;
+      });
+      document.querySelectorAll('.experience-description').forEach(el => {
+        el.style.fontSize = `${baseSize * 0.875}px`;
+      });
+      document.querySelectorAll('.mobile-feature-content h3').forEach(el => {
+        el.style.fontSize = `${baseSize * 1.125}px`;
+      });
+      document.querySelectorAll('.mobile-feature-content p').forEach(el => {
+        el.style.fontSize = `${baseSize * 0.875}px`;
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.card_background || defaultConfig.card_background,
+              set: (value) => {
+                config.card_background = value;
+                window.elementSdk.setConfig({ card_background: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["developer_name", config.developer_name || defaultConfig.developer_name],
+          ["job_title", config.job_title || defaultConfig.job_title],
+          ["bio_text", config.bio_text || defaultConfig.bio_text],
+          ["experience_title", config.experience_title || defaultConfig.experience_title],
+          ["about_title", config.about_title || defaultConfig.about_title],
+          ["work_philosophy_title", config.work_philosophy_title || defaultConfig.work_philosophy_title],
+          ["projects_title", config.projects_title || defaultConfig.projects_title],
+          ["achievements_title", config.achievements_title || defaultConfig.achievements_title],
+          ["ai_integration_title", config.ai_integration_title || defaultConfig.ai_integration_title],
+          ["web_title", config.web_title || defaultConfig.web_title],
+          ["mobile_title", config.mobile_title || defaultConfig.mobile_title],
+          ["skills_title", config.skills_title || defaultConfig.skills_title],
+          ["contact_title", config.contact_title || defaultConfig.contact_title]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a08a0f0d51c12d0',t:'MTc2MzQ4MTA4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
