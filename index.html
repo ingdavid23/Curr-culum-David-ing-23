@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
- <head>
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Currículum Programador</title>
@@ -58,10 +59,13 @@
 
     /* Twinkling animation */
     @keyframes twinkle {
-      0%, 100% {
+
+      0%,
+      100% {
         opacity: 0.3;
         transform: scale(1);
       }
+
       50% {
         opacity: 1;
         transform: scale(1.2);
@@ -73,6 +77,7 @@
       0% {
         transform: translateY(0) translateX(0) rotate(0deg);
       }
+
       100% {
         transform: translateY(-120%) translateX(100px) rotate(360deg);
       }
@@ -91,6 +96,7 @@
         opacity: 1;
         transform: translateY(0);
       }
+
       from {
         opacity: 0;
         transform: translateY(30px);
@@ -148,10 +154,21 @@
       animation: fadeInUp 1s ease forwards;
     }
 
-    .section:nth-child(2) { animation-delay: 0.2s; }
-    .section:nth-child(3) { animation-delay: 0.4s; }
-    .section:nth-child(4) { animation-delay: 0.6s; }
-    .section:nth-child(5) { animation-delay: 0.8s; }
+    .section:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .section:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .section:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    .section:nth-child(5) {
+      animation-delay: 0.8s;
+    }
 
     .section-title {
       font-size: 32px;
@@ -347,10 +364,13 @@
     }
 
     @keyframes pulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1);
         box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
       }
+
       50% {
         transform: scale(1.05);
         box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
@@ -462,9 +482,11 @@
       0% {
         transform: rotateY(-15deg) rotateX(5deg);
       }
+
       50% {
         transform: rotateY(15deg) rotateX(5deg);
       }
+
       100% {
         transform: rotateY(-15deg) rotateX(5deg);
       }
@@ -483,7 +505,7 @@
       background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
       border-radius: 12px;
       padding: 15px;
-      box-shadow: 
+      box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.6),
         inset 0 0 0 2px rgba(255, 255, 255, 0.1);
       position: relative;
@@ -527,9 +549,17 @@
       display: block;
     }
 
-    .dot.red { background: #ff5f56; }
-    .dot.yellow { background: #ffbd2e; }
-    .dot.green { background: #27c93f; }
+    .dot.red {
+      background: #ff5f56;
+    }
+
+    .dot.yellow {
+      background: #ffbd2e;
+    }
+
+    .dot.green {
+      background: #27c93f;
+    }
 
     .browser-url {
       flex: 1;
@@ -563,6 +593,7 @@
         transform: scale(0.95);
         opacity: 0.8;
       }
+
       to {
         transform: scale(1);
         opacity: 1;
@@ -576,8 +607,15 @@
     }
 
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .web-title-animated {
@@ -609,9 +647,17 @@
       animation: float 3s ease-in-out infinite;
     }
 
-    .web-card:nth-child(1) { animation-delay: 0s; }
-    .web-card:nth-child(2) { animation-delay: 0.3s; }
-    .web-card:nth-child(3) { animation-delay: 0.6s; }
+    .web-card:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .web-card:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .web-card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
 
     .monitor-stand {
       width: 80px;
@@ -656,9 +702,11 @@
       0% {
         transform: rotateY(0deg) rotateX(5deg);
       }
+
       50% {
         transform: rotateY(180deg) rotateX(5deg);
       }
+
       100% {
         transform: rotateY(360deg) rotateX(5deg);
       }
@@ -670,7 +718,7 @@
       background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
       border-radius: 45px;
       position: relative;
-      box-shadow: 
+      box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.5),
         inset 0 0 0 2px rgba(255, 255, 255, 0.1);
       transform-style: preserve-3d;
@@ -724,8 +772,13 @@
     }
 
     @keyframes slideDown {
-      from { transform: translateY(0); }
-      to { transform: translateY(5px); }
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(5px);
+      }
     }
 
     .app-content {
@@ -749,16 +802,40 @@
       animation: float 3s ease-in-out infinite;
     }
 
-    .app-icon:nth-child(1) { animation-delay: 0s; }
-    .app-icon:nth-child(2) { animation-delay: 0.2s; }
-    .app-icon:nth-child(3) { animation-delay: 0.4s; }
-    .app-icon:nth-child(4) { animation-delay: 0.6s; }
-    .app-icon:nth-child(5) { animation-delay: 0.8s; }
-    .app-icon:nth-child(6) { animation-delay: 1s; }
+    .app-icon:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .app-icon:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .app-icon:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .app-icon:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    .app-icon:nth-child(5) {
+      animation-delay: 0.8s;
+    }
+
+    .app-icon:nth-child(6) {
+      animation-delay: 1s;
+    }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
     /* iPhone buttons */
@@ -913,10 +990,13 @@
     }
 
     @keyframes modalIconPulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1);
         box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
       }
+
       50% {
         transform: scale(1.05);
         box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
@@ -1044,7 +1124,7 @@
       border: 2px solid rgba(102, 126, 234, 0.5);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 
+      box-shadow:
         0 20px 60px rgba(102, 126, 234, 0.3),
         inset 0 0 100px rgba(102, 126, 234, 0.1);
       cursor: grab;
@@ -1054,12 +1134,13 @@
 
     @keyframes neuralGlow {
       0% {
-        box-shadow: 
+        box-shadow:
           0 20px 60px rgba(102, 126, 234, 0.3),
           inset 0 0 100px rgba(102, 126, 234, 0.1);
       }
+
       100% {
-        box-shadow: 
+        box-shadow:
           0 25px 80px rgba(102, 126, 234, 0.5),
           inset 0 0 120px rgba(102, 126, 234, 0.2);
       }
@@ -1126,10 +1207,13 @@
     }
 
     @keyframes statusPulse {
-      0%, 100% {
+
+      0%,
+      100% {
         opacity: 1;
         transform: scale(1);
       }
+
       50% {
         opacity: 0.7;
         transform: scale(1.3);
@@ -1141,6 +1225,7 @@
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.6;
       }
+
       100% {
         transform: translate(-50%, -50%) scale(2.5);
         opacity: 0;
@@ -1191,6 +1276,7 @@
       0% {
         left: -100%;
       }
+
       100% {
         left: 100%;
       }
@@ -1211,6 +1297,7 @@
       0% {
         text-shadow: 0 0 15px rgba(102, 126, 234, 0.8), 0 0 30px rgba(102, 126, 234, 0.4);
       }
+
       100% {
         text-shadow: 0 0 20px rgba(102, 126, 234, 1), 0 0 40px rgba(102, 126, 234, 0.6);
       }
@@ -1277,6 +1364,35 @@
       font-size: 16px;
       color: #e0e0e0;
       font-weight: 500;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-icon {
+      width: 35px;
+      height: 35px;
+      fill: #ffffff;
     }
 
     @media (max-width: 768px) {
@@ -1364,573 +1480,459 @@
       .stat-value {
         font-size: 20px;
       }
+
+      .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+      }
+
+      .whatsapp-icon {
+        width: 30px;
+        height: 30px;
+      }
     }
   </style>
-  <style>@view-transition { navigation: auto; }</style>
+  <style>
+    @view-transition {
+      navigation: auto;
+    }
+  </style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
- </head>
- <body><!-- Animated particles -->
+</head>
+
+<body>
   <div id="particles"></div>
-  <div class="container"><!-- Header -->
-   <header class="header">
-    <div class="profile-image">
-     👨‍💻
-    </div>
-    <h1 class="name" id="developer-name">David Jesua</h1>
-    <p class="title" id="job-title">Full Stack Developer</p>
-    <p class="bio" id="bio-text">Desarrollador apasionado con 5+ años de experiencia creando aplicaciones web modernas y escalables. Especializado en JavaScript, React y Node.js.</p>
-   </header><!-- Experience Section -->
-   <section class="section">
-    <h2 class="section-title" id="experience-title">Experiencia</h2>
-    <div class="experience-grid">
-     <div class="experience-card" data-experience="senior">
-      <div class="experience-header">
-       <h3 class="experience-role">Senior Full Stack Developer</h3><span class="experience-period">2021 - Presente</span>
+  
+  <div class="container">
+    <header class="header">
+      <div class="profile-image">
+        👨‍💻
       </div>
-      <p class="experience-company">Tech Solutions Inc.</p>
-      <p class="experience-description">Liderazgo de equipo en el desarrollo de aplicaciones web empresariales. Implementación de arquitecturas escalables y mejores prácticas de desarrollo.</p>
-     </div>
-     <div class="experience-card" data-experience="fullstack">
-      <div class="experience-header">
-       <h3 class="experience-role">Full Stack Developer</h3><span class="experience-period">2019 - 2021</span>
-      </div>
-      <p class="experience-company">Digital Innovations</p>
-      <p class="experience-description">Desarrollo de aplicaciones SaaS utilizando React, Node.js y MongoDB. Optimización de rendimiento y experiencia de usuario.</p>
-     </div>
-     <div class="experience-card" data-experience="frontend">
-      <div class="experience-header">
-       <h3 class="experience-role">Frontend Developer</h3><span class="experience-period">2018 - 2019</span>
-      </div>
-      <p class="experience-company">StartUp Labs</p>
-      <p class="experience-description">Creación de interfaces de usuario responsivas y accesibles. Colaboración estrecha con diseñadores y backend developers.</p>
-     </div>
-    </div>
-   </section><!-- About Me Section -->
-   <section class="section">
-    <h2 class="section-title" id="about-title">Sobre Mí</h2>
-    <div class="about-container">
-     <div class="about-card" data-about="education">
-      <div class="about-icon">
-       🎓
-      </div>
-      <div class="about-content">
-       <h3>Formación Académica</h3>
-       <p>Ingeniero en Sistemas egresado del <strong>Instituto Tecnológico de Comitán</strong>. Mi formación académica me proporcionó las bases sólidas en programación, arquitectura de software y metodologías de desarrollo que aplico en cada proyecto.</p>
-      </div>
-     </div>
-     <div class="about-card" data-about="approach">
-      <div class="about-icon">
-       💡
-      </div>
-      <div class="about-content">
-       <h3>Mi Enfoque</h3>
-       <p>Me especializo en la <strong>creación de aplicaciones móviles y web para negocios y empresas</strong>. Mi objetivo es transformar ideas en soluciones digitales que impulsen el crecimiento y mejoren la eficiencia operativa de cada organización.</p>
-      </div>
-     </div>
-     <div class="about-card" data-about="solutions">
-      <div class="about-icon">
-       🚀
-      </div>
-      <div class="about-content">
-       <h3>Soluciones Empresariales</h3>
-       <p>Desarrollo aplicaciones escalables y robustas que se adaptan a las necesidades específicas de cada negocio. Desde startups hasta empresas consolidadas, creo herramientas digitales que generan valor real y resultados medibles.</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- Work Philosophy Section -->
-   <section class="section">
-    <h2 class="section-title" id="work-philosophy-title">Filosofía de Trabajo</h2>
-    <div class="about-container">
-     <div class="about-card" data-philosophy="environment">
-      <div class="about-icon">
-       🤝
-      </div>
-      <div class="about-content">
-       <h3>Entorno Saludable y Colaborativo</h3>
-       <p>Creo firmemente en la importancia de trabajar en un <strong>entorno laboral saludable y positivo</strong>. Para mí, el éxito de cualquier proyecto no solo depende de las habilidades técnicas, sino también de la <strong>calidad de las relaciones dentro del equipo</strong>. Busco espacios donde la comunicación sea abierta, el respeto mutuo sea la base, y donde cada miembro se sienta valorado y escuchado.</p>
-      </div>
-     </div>
-     <div class="about-card" data-philosophy="teamwork">
-      <div class="about-icon">
-       👥
-      </div>
-      <div class="about-content">
-       <h3>Trabajo en Equipo e Integración</h3>
-       <p>Me apasiona formar parte de <strong>equipos bien integrados</strong> donde nos llevemos bien tanto a nivel profesional como personal. Creo que cuando existe buena química entre los miembros del equipo, la creatividad fluye mejor, los problemas se resuelven más eficientemente y el ambiente de trabajo se vuelve más productivo y agradable. La <strong>colaboración genuina</strong> y el apoyo mutuo son fundamentales para crear productos excepcionales.</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- Featured Projects Section -->
-   <section class="section">
-    <h2 class="section-title" id="projects-title">Proyectos Destacados</h2>
-    <div class="about-container">
-     <div class="about-card" data-project="oncology">
-      <div class="about-icon">
-       🏥
-      </div>
-      <div class="about-content">
-       <h3>Plataforma Oncológica para la Salud</h3>
-       <p>Sistema integral de gestión oncológica que revoluciona el seguimiento y tratamiento de pacientes con cáncer. Incluye <strong>diagnóstico asistido por IA</strong>, gestión de tratamientos, análisis predictivo y herramientas para profesionales de la salud. Reconocida a nivel nacional en Exposiencias 2025.</p>
-      </div>
-     </div>
-     <div class="about-card" data-project="extinguisher">
-      <div class="about-icon">
-       🧯
-      </div>
-      <div class="about-content">
-       <h3>Sistema de Checklist para Extintores Empresarial</h3>
-       <p>Aplicación empresarial para la <strong>gestión y control de extintores</strong> en organizaciones. Permite realizar inspecciones periódicas, generar reportes de cumplimiento normativo, programar mantenimientos y mantener un historial completo de cada extintor. Optimiza la seguridad industrial y el cumplimiento de regulaciones.</p>
-      </div>
-     </div>
-     <div class="about-card" data-project="nursing">
-      <div class="about-icon">
-       👩‍⚕️
-      </div>
-      <div class="about-content">
-       <h3>Aplicación de Reportes para Enfermería</h3>
-       <p>Sistema especializado para el <strong>área de enfermería</strong> que facilita la documentación de cuidados, registro de signos vitales, administración de medicamentos y generación de reportes médicos. Mejora la eficiencia del personal de enfermería y la calidad de atención al paciente.</p>
-      </div>
-     </div>
-     <div class="about-card" data-project="nutrition">
-      <div class="about-icon">
-       🥗
-      </div>
-      <div class="about-content">
-       <h3>Plataforma para Nutriólogos</h3>
-       <p>Herramienta completa para <strong>profesionales de la nutrición</strong> que incluye gestión de pacientes, planes alimenticios personalizados, seguimiento de progreso, cálculo de requerimientos nutricionales y generación de dietas. Facilita el trabajo del nutriólogo y mejora los resultados con los pacientes.</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- Achievements Section -->
-   <section class="section">
-    <h2 class="section-title" id="achievements-title">Logros Destacados</h2>
-    <div class="about-container">
-     <div class="about-card achievement-highlight" data-achievement="exposiencias">
-      <div class="about-icon achievement-icon">
-       🏆
-      </div>
-      <div class="about-content">
-       <h3>Nacional de Exposiencias 2025</h3>
-       <p>Orgulloso de haber llegado al <strong>Nacional de Exposiencias 2025</strong> con el desarrollo de una <strong>plataforma oncológica innovadora</strong>. Este proyecto representa mi compromiso con la tecnología aplicada a la salud, creando soluciones que pueden impactar positivamente la vida de pacientes y profesionales médicos.</p>
-       <div class="achievement-badge"><span class="badge-icon">🎖️</span> <span class="badge-text">Reconocimiento Nacional</span>
-       </div>
-      </div>
-     </div>
-     <div class="about-card achievement-highlight" data-achievement="congresos">
-      <div class="about-icon achievement-icon">
-       🎤
-      </div>
-      <div class="about-content">
-       <h3>Expositor en Congresos de Desarrollo Móvil</h3>
-       <p>Participación activa como <strong>expositor en congresos especializados</strong> en desarrollo de aplicaciones móviles. Compartiendo conocimientos, mejores prácticas y experiencias con la comunidad de desarrolladores, contribuyendo al crecimiento del ecosistema tecnológico.</p>
-       <div class="achievement-badge"><span class="badge-icon">📱</span> <span class="badge-text">Ponente Especializado</span>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- AI Integration Section -->
-   <section class="section">
-    <h2 class="section-title" id="ai-integration-title">Integración de Inteligencia Artificial</h2>
-    <div class="mobile-showcase">
-     <div class="neural-network-container">
-      <div class="neural-network-3d">
-       <canvas id="neuralCanvas"></canvas>
-       <div class="neural-overlay">
-        <div class="neural-status">
-         <div class="status-indicator"></div><span>Red Neuronal Activa</span>
-        </div>
-        <div class="neural-stats">
-         <div class="stat-item"><span class="stat-value" id="nodes-count">128</span> <span class="stat-label">Nodos</span>
-         </div>
-         <div class="stat-item"><span class="stat-value" id="connections-count">384</span> <span class="stat-label">Conexiones</span>
-         </div>
-         <div class="stat-item"><span class="stat-value" id="accuracy">98.7%</span> <span class="stat-label">Precisión</span>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="mobile-info">
-      <div class="mobile-feature" data-ai="tool">
-       <div class="mobile-feature-icon">
-        🤖
-       </div>
-       <div class="mobile-feature-content">
-        <h3>IA como Herramienta de Potenciación</h3>
-        <p>Como programador moderno, integro la inteligencia artificial de manera estratégica y responsable. No veo la IA como un reemplazo, sino como una herramienta poderosa que potencia mis capacidades.</p>
-       </div>
-      </div>
-      <div class="mobile-feature" data-ai="ethics">
-       <div class="mobile-feature-icon">
-        🧠
-       </div>
-       <div class="mobile-feature-content">
-        <h3>Implementación Ética y Efectiva</h3>
-        <p>Mi enfoque con la IA se basa en la implementación ética y con propósito. Utilizo modelos de machine learning, procesamiento de lenguaje natural y análisis predictivo cuando realmente aportan valor.</p>
-       </div>
-      </div>
-      <div class="mobile-feature" data-ai="innovation">
-       <div class="mobile-feature-icon">
-        ⚡
-       </div>
-       <div class="mobile-feature-content">
-        <h3>Innovación y Aprendizaje Continuo</h3>
-        <p>Me mantengo constantemente actualizado con las últimas tecnologías de IA, desde GPT y modelos de lenguaje hasta visión por computadora y análisis de datos.</p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Web Development Section -->
-   <section class="section">
-    <h2 class="section-title" id="web-title">Desarrollo Web</h2>
-    <div class="mobile-showcase">
-     <div class="desktop-container">
-      <div class="desktop-computer">
-       <div class="monitor">
-        <div class="monitor-frame">
-         <div class="monitor-screen">
-          <div class="browser-window">
-           <div class="browser-header">
-            <div class="browser-dots"><span class="dot red"></span> <span class="dot yellow"></span> <span class="dot green"></span>
-            </div>
-            <div class="browser-url">
-             https://mi-negocio.com
-            </div>
-            <div class="browser-actions">
-             ⚙️
-            </div>
-           </div>
-           <div class="browser-content">
-            <div class="web-hero">
-             <div class="web-logo">
-              🏢
-             </div>
-             <div class="web-title-animated">
-              Tu Negocio Online
-             </div>
-            </div>
-            <div class="web-sections">
-             <div class="web-card">
-              📊
-             </div>
-             <div class="web-card">
-              💼
-             </div>
-             <div class="web-card">
-              📈
-             </div>
-            </div>
-           </div>
+      <h1 class="name" id="developer-name">David Jesua</h1>
+      <p class="title" id="job-title">Full Stack Developer</p>
+      <p class="bio" id="bio-text">Desarrollador apasionado con 5+ años de experiencia creando aplicaciones web modernas y escalables. Especializado en JavaScript, React y Node.js.</p>
+    </header>
+    
+    <section class="section">
+      <h2 class="section-title" id="experience-title">Experiencia</h2>
+      <div class="experience-grid">
+        <div class="experience-card" data-experience="senior">
+          <div class="experience-header">
+            <h3 class="experience-role">Senior Full Stack Developer</h3><span class="experience-period">2021 - Presente</span>
           </div>
-         </div>
+          <p class="experience-company">Tech Solutions Inc.</p>
+          <p class="experience-description">Liderazgo de equipo en el desarrollo de aplicaciones web empresariales. Implementación de arquitecturas escalables y mejores prácticas de desarrollo.</p>
         </div>
-        <div class="monitor-stand"></div>
-        <div class="monitor-base"></div>
-       </div>
-      </div>
-     </div>
-     <div class="mobile-info">
-      <div class="mobile-feature" data-web="corporate">
-       <div class="mobile-feature-icon">
-        🌐
-       </div>
-       <div class="mobile-feature-content">
-        <h3>Sitios Web Empresariales</h3>
-        <p>Desarrollo de sitios web corporativos modernos y responsivos que reflejan la identidad de tu negocio y atraen clientes.</p>
-       </div>
-      </div>
-      <div class="mobile-feature" data-web="webapp">
-       <div class="mobile-feature-icon">
-        💻
-       </div>
-       <div class="mobile-feature-content">
-        <h3>Aplicaciones Web</h3>
-        <p>Sistemas web personalizados para empresas: CRM, ERP, dashboards y herramientas que optimizan procesos de negocio.</p>
-       </div>
-      </div>
-      <div class="mobile-feature" data-web="ecommerce">
-       <div class="mobile-feature-icon">
-        🛒
-       </div>
-       <div class="mobile-feature-content">
-        <h3>E-commerce</h3>
-        <p>Tiendas online completas con pasarelas de pago, gestión de inventario y análisis de ventas para hacer crecer tu negocio.</p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Mobile Development Section -->
-   <section class="section">
-    <h2 class="section-title" id="mobile-title">Desarrollo Móvil</h2>
-    <div class="mobile-showcase">
-     <div class="mobile-info">
-      <div class="mobile-feature" data-mobile="native">
-       <div class="mobile-feature-icon">
-        📱
-       </div>
-       <div class="mobile-feature-content">
-        <h3>Apps Nativas</h3>
-        <p>Desarrollo de aplicaciones iOS y Android con Swift y Kotlin, optimizadas para rendimiento máximo.</p>
-       </div>
-      </div>
-      <div class="mobile-feature" data-mobile="reactnative">
-       <div class="mobile-feature-icon">
-        ⚡
-       </div>
-       <div class="mobile-feature-content">
-        <h3>React Native</h3>
-        <p>Aplicaciones multiplataforma con código compartido, reduciendo tiempos de desarrollo hasta un 40%.</p>
-       </div>
-      </div>
-      <div class="mobile-feature" data-mobile="uiux">
-       <div class="mobile-feature-icon">
-        🎨
-       </div>
-       <div class="mobile-feature-content">
-        <h3>UI/UX Móvil</h3>
-        <p>Diseño de interfaces intuitivas siguiendo las guías de Material Design y Human Interface Guidelines.</p>
-       </div>
-      </div>
-     </div>
-     <div class="iphone-container">
-      <div class="iphone">
-       <div class="iphone-body">
-        <div class="iphone-notch"></div>
-        <div class="iphone-screen">
-         <div class="app-interface">
-          <div class="app-header">
-           Mi Portfolio App
+        <div class="experience-card" data-experience="fullstack">
+          <div class="experience-header">
+            <h3 class="experience-role">Full Stack Developer</h3><span class="experience-period">2019 - 2021</span>
           </div>
-          <div class="app-content">
-           <div class="app-icon">
-            🏠
-           </div>
-           <div class="app-icon">
-            💼
-           </div>
-           <div class="app-icon">
-            📊
-           </div>
-           <div class="app-icon">
-            ⚙️
-           </div>
-           <div class="app-icon">
-            📧
-           </div>
-           <div class="app-icon">
-            👤
-           </div>
-          </div>
-         </div>
+          <p class="experience-company">Digital Innovations</p>
+          <p class="experience-description">Desarrollo de aplicaciones SaaS utilizando React, Node.js y MongoDB. Optimización de rendimiento y experiencia de usuario.</p>
         </div>
-        <div class="iphone-button power-button"></div>
-        <div class="iphone-button volume-up"></div>
-        <div class="iphone-button volume-down"></div>
-       </div>
+        <div class="experience-card" data-experience="frontend">
+          <div class="experience-header">
+            <h3 class="experience-role">Frontend Developer</h3><span class="experience-period">2018 - 2019</span>
+          </div>
+          <p class="experience-company">StartUp Labs</p>
+          <p class="experience-description">Creación de interfaces de usuario responsivas y accesibles. Colaboración estrecha con diseñadores y backend developers.</p>
+        </div>
       </div>
-     </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title" id="about-title">Sobre Mí</h2>
+      <div class="about-container">
+        <div class="about-card" data-about="education">
+          <div class="about-icon">🎓</div>
+          <div class="about-content">
+            <h3>Formación Académica</h3>
+            <p>Ingeniero en Sistemas egresado del <strong>Instituto Tecnológico de Comitán</strong>. Mi formación académica me proporcionó las bases sólidas en programación, arquitectura de software y metodologías de desarrollo que aplico en cada proyecto.</p>
+          </div>
+        </div>
+        <div class="about-card" data-about="approach">
+          <div class="about-icon">💡</div>
+          <div class="about-content">
+            <h3>Mi Enfoque</h3>
+            <p>Me especializo en la <strong>creación de aplicaciones móviles y web para negocios y empresas</strong>. Mi objetivo es transformar ideas en soluciones digitales que impulsen el crecimiento y mejoren la eficiencia operativa de cada organización.</p>
+          </div>
+        </div>
+        <div class="about-card" data-about="solutions">
+          <div class="about-icon">🚀</div>
+          <div class="about-content">
+            <h3>Soluciones Empresariales</h3>
+            <p>Desarrollo aplicaciones escalables y robustas que se adaptan a las necesidades específicas de cada negocio. Desde startups hasta empresas consolidadas, creo herramientas digitales que generan valor real y resultados medibles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title" id="work-philosophy-title">Filosofía de Trabajo</h2>
+      <div class="about-container">
+        <div class="about-card" data-philosophy="environment">
+          <div class="about-icon">🤝</div>
+          <div class="about-content">
+            <h3>Entorno Saludable y Colaborativo</h3>
+            <p>Creo firmemente en la importancia de trabajar en un <strong>entorno laboral saludable y positivo</strong>. Para mí, el éxito de cualquier proyecto no solo depende de las habilidades técnicas, sino también de la <strong>calidad de las relaciones dentro del equipo</strong>. Busco espacios donde la comunicación sea abierta, el respeto mutuo sea la base, y donde cada miembro se sienta valorado y escuchado.</p>
+          </div>
+        </div>
+        <div class="about-card" data-philosophy="teamwork">
+          <div class="about-icon">👥</div>
+          <div class="about-content">
+            <h3>Trabajo en Equipo e Integración</h3>
+            <p>Me apasiona formar parte de <strong>equipos bien integrados</strong> donde nos llevemos bien tanto a nivel profesional como personal. Creo que cuando existe buena química entre los miembros del equipo, la creatividad fluye mejor, los problemas se resuelven más eficientemente y el ambiente de trabajo se vuelve más productivo y agradable. La <strong>colaboración genuina</strong> y el apoyo mutuo son fundamentales para crear productos excepcionales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title" id="projects-title">Proyectos Destacados</h2>
+      <div class="about-container">
+        <div class="about-card" data-project="oncology">
+          <div class="about-icon">🏥</div>
+          <div class="about-content">
+            <h3>Plataforma Oncológica para la Salud</h3>
+            <p>Sistema integral de gestión oncológica que revoluciona el seguimiento y tratamiento de pacientes con cáncer. Incluye <strong>diagnóstico asistido por IA</strong>, gestión de tratamientos, análisis predictivo y herramientas para profesionales de la salud. Reconocida a nivel nacional en Exposiencias 2025.</p>
+          </div>
+        </div>
+        <div class="about-card" data-project="extinguisher">
+          <div class="about-icon">🧯</div>
+          <div class="about-content">
+            <h3>Sistema de Checklist para Extintores Empresarial</h3>
+            <p>Aplicación empresarial para la <strong>gestión y control de extintores</strong> en organizaciones. Permite realizar inspecciones periódicas, generar reportes de cumplimiento normativo, programar mantenimientos y mantener un historial completo de cada extintor. Optimiza la seguridad industrial y el cumplimiento de regulaciones.</p>
+          </div>
+        </div>
+        <div class="about-card" data-project="nursing">
+          <div class="about-icon">👩‍⚕️</div>
+          <div class="about-content">
+            <h3>Aplicación de Reportes para Enfermería</h3>
+            <p>Sistema especializado para el <strong>área de enfermería</strong> que facilita la documentación de cuidados, registro de signos vitales, administración de medicamentos y generación de reportes médicos. Mejora la eficiencia del personal de enfermería y la calidad de atención al paciente.</p>
+          </div>
+        </div>
+        <div class="about-card" data-project="nutrition">
+          <div class="about-icon">🥗</div>
+          <div class="about-content">
+            <h3>Plataforma para Nutriólogos</h3>
+            <p>Herramienta completa para <strong>profesionales de la nutrición</strong> que incluye gestión de pacientes, planes alimenticios personalizados, seguimiento de progreso, cálculo de requerimientos nutricionales y generación de dietas. Facilita el trabajo del nutriólogo y mejora los resultados con los pacientes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title" id="achievements-title">Logros Destacados</h2>
+      <div class="about-container">
+        <div class="about-card achievement-highlight" data-achievement="exposiencias">
+          <div class="about-icon achievement-icon">🏆</div>
+          <div class="about-content">
+            <h3>Nacional de Exposiencias 2025</h3>
+            <p>Orgulloso de haber llegado al <strong>Nacional de Exposiencias 2025</strong> con el desarrollo de una <strong>plataforma oncológica innovadora</strong>. Este proyecto representa mi compromiso con la tecnología aplicada a la salud, creando soluciones que pueden impactar positivamente la vida de pacientes y profesionales médicos.</p>
+            <div class="achievement-badge"><span class="badge-icon">🎖️</span> <span class="badge-text">Reconocimiento Nacional</span></div>
+          </div>
+        </div>
+        <div class="about-card achievement-highlight" data-achievement="congresos">
+          <div class="about-icon achievement-icon">🎤</div>
+          <div class="about-content">
+            <h3>Expositor en Congresos de Desarrollo Móvil</h3>
+            <p>Participación activa como <strong>expositor en congresos especializados</strong> en desarrollo de aplicaciones móviles. Compartiendo conocimientos, mejores prácticas y experiencias con la comunidad de desarrolladores, contribuyendo al crecimiento del ecosistema tecnológico.</p>
+            <div class="achievement-badge"><span class="badge-icon">📱</span> <span class="badge-text">Ponente Especializado</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title" id="ai-integration-title">Integración de Inteligencia Artificial</h2>
+      <div class="mobile-showcase">
+        <div class="neural-network-container">
+          <div class="neural-network-3d">
+            <canvas id="neuralCanvas"></canvas>
+            <div class="neural-overlay">
+              <div class="neural-status">
+                <div class="status-indicator"></div><span>Red Neuronal Activa</span>
+              </div>
+              <div class="neural-stats">
+                <div class="stat-item"><span class="stat-value" id="nodes-count">128</span> <span class="stat-label">Nodos</span></div>
+                <div class="stat-item"><span class="stat-value" id="connections-count">384</span> <span class="stat-label">Conexiones</span></div>
+                <div class="stat-item"><span class="stat-value" id="accuracy">98.7%</span> <span class="stat-label">Precisión</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-info">
+          <div class="mobile-feature" data-ai="tool">
+            <div class="mobile-feature-icon">🤖</div>
+            <div class="mobile-feature-content">
+              <h3>IA como Herramienta de Potenciación</h3>
+              <p>Como programador moderno, integro la inteligencia artificial de manera estratégica y responsable. No veo la IA como un reemplazo, sino como una herramienta poderosa que potencia mis capacidades.</p>
+            </div>
+          </div>
+          <div class="mobile-feature" data-ai="ethics">
+            <div class="mobile-feature-icon">🧠</div>
+            <div class="mobile-feature-content">
+              <h3>Implementación Ética y Efectiva</h3>
+              <p>Mi enfoque con la IA se basa en la implementación ética y con propósito. Utilizo modelos de machine learning, procesamiento de lenguaje natural y análisis predictivo cuando realmente aportan valor.</p>
+            </div>
+          </div>
+          <div class="mobile-feature" data-ai="innovation">
+            <div class="mobile-feature-icon">⚡</div>
+            <div class="mobile-feature-content">
+              <h3>Innovación y Aprendizaje Continuo</h3>
+              <p>Me mantengo constantemente actualizado con las últimas tecnologías de IA, desde GPT y modelos de lenguaje hasta visión por computadora y análisis de datos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title" id="web-title">Desarrollo Web</h2>
+      <div class="mobile-showcase">
+        <div class="desktop-container">
+          <div class="desktop-computer">
+            <div class="monitor">
+              <div class="monitor-frame">
+                <div class="monitor-screen">
+                  <div class="browser-window">
+                    <div class="browser-header">
+                      <div class="browser-dots">
+                        <span class="dot red"></span> <span class="dot yellow"></span> <span class="dot green"></span>
+                      </div>
+                      <div class="browser-url">https://mi-negocio.com</div>
+                      <div class="browser-actions">⚙️</div>
+                    </div>
+                    <div class="browser-content">
+                      <div class="web-hero">
+                        <div class="web-logo">🏢</div>
+                        <div class="web-title-animated">Tu Negocio Online</div>
+                      </div>
+                      <div class="web-sections">
+                        <div class="web-card">📊</div>
+                        <div class="web-card">💼</div>
+                        <div class="web-card">📈</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-info">
+          <div class="mobile-feature" data-web="corporate">
+            <div class="mobile-feature-icon">🌐</div>
+            <div class="mobile-feature-content">
+              <h3>Sitios Web Empresariales</h3>
+              <p>Desarrollo de sitios web corporativos modernos y responsivos que reflejan la identidad de tu negocio y atraen clientes.</p>
+            </div>
+          </div>
+          <div class="mobile-feature" data-web="webapp">
+            <div class="mobile-feature-icon">💻</div>
+            <div class="mobile-feature-content">
+              <h3>Aplicaciones Web</h3>
+              <p>Sistemas web personalizados para empresas: CRM, ERP, dashboards y herramientas que optimizan procesos de negocio.</p>
+            </div>
+          </div>
+          <div class="mobile-feature" data-web="ecommerce">
+            <div class="mobile-feature-icon">🛒</div>
+            <div class="mobile-feature-content">
+              <h3>E-commerce</h3>
+              <p>Tiendas online completas con pasarelas de pago, gestión de inventario y análisis de ventas para hacer crecer tu negocio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title" id="mobile-title">Desarrollo Móvil</h2>
+      <div class="mobile-showcase">
+        <div class="mobile-info">
+          <div class="mobile-feature" data-mobile="native">
+            <div class="mobile-feature-icon">📱</div>
+            <div class="mobile-feature-content">
+              <h3>Apps Nativas</h3>
+              <p>Desarrollo de aplicaciones iOS y Android con Swift y Kotlin, optimizadas para rendimiento máximo.</p>
+            </div>
+          </div>
+          <div class="mobile-feature" data-mobile="reactnative">
+            <div class="mobile-feature-icon">⚡</div>
+            <div class="mobile-feature-content">
+              <h3>React Native</h3>
+              <p>Aplicaciones multiplataforma con código compartido, reduciendo tiempos de desarrollo hasta un 40%.</p>
+            </div>
+          </div>
+          <div class="mobile-feature" data-mobile="uiux">
+            <div class="mobile-feature-icon">🎨</div>
+            <div class="mobile-feature-content">
+              <h3>UI/UX Móvil</h3>
+              <p>Diseño de interfaces intuitivas siguiendo las guías de Material Design y Human Interface Guidelines.</p>
+            </div>
+          </div>
+        </div>
+        <div class="iphone-container">
+          <div class="iphone">
+            <div class="iphone-body">
+              <div class="iphone-notch"></div>
+              <div class="iphone-screen">
+                <div class="app-interface">
+                  <div class="app-header">Mi Portfolio App</div>
+                  <div class="app-content">
+                    <div class="app-icon">🏠</div>
+                    <div class="app-icon">💼</div>
+                    <div class="app-icon">📊</div>
+                    <div class="app-icon">⚙️</div>
+                    <div class="app-icon">📧</div>
+                    <div class="app-icon">👤</div>
+                  </div>
+                </div>
+              </div>
+              <div class="iphone-button power-button"></div>
+              <div class="iphone-button volume-up"></div>
+              <div class="iphone-button volume-down"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title" id="skills-title">Habilidades</h2>
+      <div class="skills-grid">
+        <div class="skill-card" data-skill="react">
+          <div class="skill-icon">⚛️</div>
+          <div class="skill-name">React</div>
+        </div>
+        <div class="skill-card" data-skill="nodejs">
+          <div class="skill-icon">📗</div>
+          <div class="skill-name">Node.js</div>
+        </div>
+        <div class="skill-card" data-skill="android">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-name">Android Studio</div>
+        </div>
+        <div class="skill-card" data-skill="xcode">
+          <div class="skill-icon">🍎</div>
+          <div class="skill-name">Xcode</div>
+        </div>
+        <div class="skill-card" data-skill="html">
+          <div class="skill-icon">🌐</div>
+          <div class="skill-name">HTML</div>
+        </div>
+        <div class="skill-card" data-skill="css">
+          <div class="skill-icon">🎨</div>
+          <div class="skill-name">CSS/Tailwind</div>
+        </div>
+        <div class="skill-card" data-skill="mongodb">
+          <div class="skill-icon">💾</div>
+          <div class="skill-name">MongoDB</div>
+        </div>
+        <div class="skill-card" data-skill="postgresql">
+          <div class="skill-icon">🐘</div>
+          <div class="skill-name">PostgreSQL</div>
+        </div>
+        <div class="skill-card" data-skill="typescript">
+          <div class="skill-icon">🔷</div>
+          <div class="skill-name">TypeScript</div>
+        </div>
+        <div class="skill-card" data-skill="docker">
+          <div class="skill-icon">🐳</div>
+          <div class="skill-name">Docker</div>
+        </div>
+        <div class="skill-card" data-skill="aws">
+          <div class="skill-icon">☁️</div>
+          <div class="skill-name">AWS</div>
+        </div>
+        <div class="skill-card" data-skill="java">
+          <div class="skill-icon">☕</div>
+          <div class="skill-name">Java</div>
+        </div>
+        <div class="skill-card" data-skill="python">
+          <div class="skill-icon">🐍</div>
+          <div class="skill-name">Python</div>
+        </div>
+        <div class="skill-card" data-skill="php">
+          <div class="skill-icon">🐘</div>
+          <div class="skill-name">PHP</div>
+        </div>
+        <div class="skill-card" data-skill="networking">
+          <div class="skill-icon">🌐</div>
+          <div class="skill-name">Redes</div>
+        </div>
+        <div class="skill-card" data-skill="netadmin">
+          <div class="skill-icon">🔧</div>
+          <div class="skill-name">Admin. Redes</div>
+        </div>
+      </div>
+    </section>
+    
+    <div class="modal-overlay" id="skillModal">
+      <div class="modal-content">
+        <div class="modal-close" id="modalClose">×</div>
+        <div class="modal-header">
+          <div class="modal-icon" id="modalIcon">⚛️</div>
+          <div class="modal-title-section">
+            <h3 class="modal-title" id="modalTitle">React</h3>
+            <p class="modal-category" id="modalCategory">Biblioteca JavaScript</p>
+          </div>
+        </div>
+        <p class="modal-description" id="modalDescription">React es una biblioteca de JavaScript para construir interfaces de usuario.</p>
+        <div class="modal-features">
+          <h4>✨ Características Principales</h4>
+          <ul id="modalFeatures">
+            <li>Componentes reutilizables</li>
+            <li>Virtual DOM para rendimiento óptimo</li>
+            <li>Ecosistema robusto</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-button modal-button-secondary" id="modalCloseBtn">Cerrar</button>
+          <button class="modal-button modal-button-primary" id="modalLearnMore">Aprender Más</button>
+        </div>
+      </div>
     </div>
-   </section><!-- Skills Section -->
-   <section class="section">
-    <h2 class="section-title" id="skills-title">Habilidades</h2>
-    <div class="skills-grid">
-     <div class="skill-card" data-skill="react">
-      <div class="skill-icon">
-       ⚛️
+    
+    <section class="section">
+      <h2 class="section-title" id="contact-title">Contacto</h2>
+      <div class="contact-grid">
+        <a href="mailto:appleedavid@gmail.com" class="contact-item" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon">📧</div>
+          <div class="contact-info">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">appleedavid@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://github.com/ingdavid23" class="contact-item" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon">💻</div>
+          <div class="contact-info">
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value">@ingdavid23</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/davidjesua" class="contact-item" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon">💼</div>
+          <div class="contact-info">
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">/davidjesua</div>
+          </div>
+        </a>
       </div>
-      <div class="skill-name">
-       React
-      </div>
-     </div>
-     <div class="skill-card" data-skill="nodejs">
-      <div class="skill-icon">
-       📗
-      </div>
-      <div class="skill-name">
-       Node.js
-      </div>
-     </div>
-     <div class="skill-card" data-skill="android">
-      <div class="skill-icon">
-       🤖
-      </div>
-      <div class="skill-name">
-       Android Studio
-      </div>
-     </div>
-     <div class="skill-card" data-skill="xcode">
-      <div class="skill-icon">
-       🍎
-      </div>
-      <div class="skill-name">
-       Xcode
-      </div>
-     </div>
-     <div class="skill-card" data-skill="html">
-      <div class="skill-icon">
-       🌐
-      </div>
-      <div class="skill-name">
-       HTML
-      </div>
-     </div>
-     <div class="skill-card" data-skill="css">
-      <div class="skill-icon">
-       🎨
-      </div>
-      <div class="skill-name">
-       CSS/Tailwind
-      </div>
-     </div>
-     <div class="skill-card" data-skill="mongodb">
-      <div class="skill-icon">
-       💾
-      </div>
-      <div class="skill-name">
-       MongoDB
-      </div>
-     </div>
-     <div class="skill-card" data-skill="postgresql">
-      <div class="skill-icon">
-       🐘
-      </div>
-      <div class="skill-name">
-       PostgreSQL
-      </div>
-     </div>
-     <div class="skill-card" data-skill="typescript">
-      <div class="skill-icon">
-       🔷
-      </div>
-      <div class="skill-name">
-       TypeScript
-      </div>
-     </div>
-     <div class="skill-card" data-skill="docker">
-      <div class="skill-icon">
-       🐳
-      </div>
-      <div class="skill-name">
-       Docker
-      </div>
-     </div>
-     <div class="skill-card" data-skill="aws">
-      <div class="skill-icon">
-       ☁️
-      </div>
-      <div class="skill-name">
-       AWS
-      </div>
-     </div>
-     <div class="skill-card" data-skill="java">
-      <div class="skill-icon">
-       ☕
-      </div>
-      <div class="skill-name">
-       Java
-      </div>
-     </div>
-     <div class="skill-card" data-skill="python">
-      <div class="skill-icon">
-       🐍
-      </div>
-      <div class="skill-name">
-       Python
-      </div>
-     </div>
-     <div class="skill-card" data-skill="php">
-      <div class="skill-icon">
-       🐘
-      </div>
-      <div class="skill-name">
-       PHP
-      </div>
-     </div>
-     <div class="skill-card" data-skill="networking">
-      <div class="skill-icon">
-       🌐
-      </div>
-      <div class="skill-name">
-       Redes
-      </div>
-     </div>
-     <div class="skill-card" data-skill="netadmin">
-      <div class="skill-icon">
-       🔧
-      </div>
-      <div class="skill-name">
-       Admin. Redes
-      </div>
-     </div>
-    </div>
-   </section><!-- Modal -->
-   <div class="modal-overlay" id="skillModal">
-    <div class="modal-content">
-     <div class="modal-close" id="modalClose">
-      ×
-     </div>
-     <div class="modal-header">
-      <div class="modal-icon" id="modalIcon">
-       ⚛️
-      </div>
-      <div class="modal-title-section">
-       <h3 class="modal-title" id="modalTitle">React</h3>
-       <p class="modal-category" id="modalCategory">Biblioteca JavaScript</p>
-      </div>
-     </div>
-     <p class="modal-description" id="modalDescription">React es una biblioteca de JavaScript para construir interfaces de usuario.</p>
-     <div class="modal-features">
-      <h4>✨ Características Principales</h4>
-      <ul id="modalFeatures">
-       <li>Componentes reutilizables</li>
-       <li>Virtual DOM para rendimiento óptimo</li>
-       <li>Ecosistema robusto</li>
-      </ul>
-     </div>
-     <div class="modal-footer"><button class="modal-button modal-button-secondary" id="modalCloseBtn">Cerrar</button> <button class="modal-button modal-button-primary" id="modalLearnMore">Aprender Más</button>
-     </div>
-    </div>
-   </div><!-- Contact Section -->
-   <section class="section">
-    <h2 class="section-title" id="contact-title">Contacto</h2>
-    <div class="contact-grid"><a href="mailto:alex@example.com" class="contact-item" target="_blank" rel="noopener noreferrer">
-      <div class="contact-icon">
-       📧
-      </div>
-      <div class="contact-info">
-       <div class="contact-label">
-        Email
-       </div>
-       <div class="contact-value">
-        appleedavid@gmail.com
-       </div>
-      </div></a> <a href="https://github.com/ingdavid23" class="contact-item" target="_blank" rel="noopener noreferrer">
-      <div class="contact-icon">
-       💻
-      </div>
-      <div class="contact-info">
-       <div class="contact-label">
-        GitHub
-       </div>
-       <div class="contact-value">
-        @ingdavid23
-       </div>
-      </div></a> <a href="https://linkedin.com/in/alexmartinez" class="contact-item" target="_blank" rel="noopener noreferrer">
-      <div class="contact-icon">
-       💼
-      </div>
-      <div class="contact-info">
-       <div class="contact-label">
-        LinkedIn
-       </div>
-       <div class="contact-value">
-        /davidjesua 
-       </div>
-      </div></a>
-    </div>
-   </section>
+    </section>
   </div>
+
+  <a href="https://wa.me/529631584080" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.002 2.06A13.93 13.93 0 0 0 2.07 16c0 2.454.636 4.85 1.844 6.965L2 30l7.218-1.894A13.882 13.882 0 0 0 16.002 29.94a13.93 13.93 0 0 0 13.93-13.94A13.93 13.93 0 0 0 16.002 2.06zm0 25.534c-2.074 0-4.106-.558-5.88-1.614l-.422-.25-4.376 1.148 1.166-4.266-.274-.436A11.583 11.583 0 0 1 4.394 16c0-6.4 5.208-11.608 11.608-11.608 3.102 0 6.018 1.21 8.21 3.402a11.547 11.547 0 0 1 3.4 8.206c-.002 6.4-5.21 11.594-11.61 11.594zm6.366-8.705c-.348-.174-2.062-1.018-2.382-1.134-.318-.116-.552-.174-.784.174-.232.348-.9 1.134-1.104 1.366-.202.232-.406.262-.754.088-.348-.174-1.474-.544-2.808-1.734-.1036-.932-1.572-1.638-1.776-1.986-.202-.348-.022-.536.152-.71.158-.158.348-.406.522-.61.174-.202.232-.348.348-.58.116-.232.058-.436-.03-.61-.088-.174-.784-1.894-1.074-2.592-.284-.68-.572-.588-.784-.598-.202-.01-.436-.01-.668-.01-.232 0-.61.088-.93.436-.318.348-1.22 1.192-1.22 2.906 0 1.714 1.25 3.37 1.424 3.602.174.232 2.456 3.75 5.946 5.258.83.358 1.478.572 1.98.732.83.264 1.586.226 2.182.138.668-.1 2.062-.844 2.352-1.656.29-.812.29-1.51.202-1.656-.088-.146-.318-.232-.668-.406z"/>
+    </svg>
+  </a>
+
   <script>
     // Create animated star particles
     function createParticles() {
@@ -1939,21 +1941,21 @@
 
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
-        
+
         // Random size class
         const sizeClasses = ['small', 'medium', 'large'];
         const randomSize = sizeClasses[Math.floor(Math.random() * sizeClasses.length)];
         particle.className = `particle ${randomSize}`;
-        
+
         // Random position
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 120 + '%';
-        
+
         // Random animation delays for natural effect
         const twinkleDelay = Math.random() * 5;
         const floatDelay = Math.random() * 35;
         particle.style.animationDelay = `${twinkleDelay}s, ${floatDelay}s`;
-        
+
         particlesContainer.appendChild(particle);
       }
     }
@@ -2505,7 +2507,7 @@
         icon: '☕',
         title: 'Java',
         category: 'Lenguaje de Programación',
-        description: 'Java es un lenguaje de programación orientado a objetos, robusto y multiplataforma. Con más de 25 años de historia, es uno de los lenguajes más utilizados en el mundo empresarial para desarrollar aplicaciones de backend, sistemas empresariales y aplicaciones Android.',
+        description: 'Java es un lenguaje de programación orientado a objetos, robusto y multiplataforma. Con más de 25 años de historia, es uno de los lengripción en el mundo empresarial para desarrollar aplicaciones de backend, sistemas empresariales y aplicaciones Android.',
         features: [
           'Multiplataforma: "Write Once, Run Anywhere"',
           'Orientado a objetos con tipado fuerte',
@@ -2565,7 +2567,7 @@
         icon: '🔧',
         title: 'Administración de Redes',
         category: 'Gestión de Infraestructura',
-        description: 'Experiencia en administración y gestión de infraestructuras de red empresariales. Capacidad para diseñar, implementar y mantener redes seguras y eficientes que soporten las operaciones críticas del negocio.',
+        description: 'Experiencia en administración y gestión de infraestructuras de red empresariales. Capacidad para diseñar, implementar y mantener redes seguras y eficientes que soporte las operaciones críticas del negocio.',
         features: [
           'Configuración de routers y switches (Cisco, MikroTik)',
           'Gestión de servidores DHCP y DNS',
@@ -2584,7 +2586,7 @@
     const modalClose = document.getElementById('modalClose');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
     const modalLearnMore = document.getElementById('modalLearnMore');
-    
+
     let currentUrl = '';
 
     function openModal(data) {
@@ -2625,7 +2627,7 @@
     }
 
     // Event listeners for all clickable cards
-    
+
     // Projects cards
     document.querySelectorAll('.about-card[data-project]').forEach(card => {
       card.style.cursor = 'pointer';
@@ -2634,7 +2636,7 @@
         openModal(projectsData[key]);
       });
     });
-    
+
     // Experience cards
     document.querySelectorAll('.experience-card[data-experience]').forEach(card => {
       card.style.cursor = 'pointer';
@@ -2827,7 +2829,7 @@
       const coreGridSize = 4;
       const coreSpacing = 80;
       const coreSize = 25;
-      
+
       for (let i = 0; i < coreGridSize; i++) {
         for (let j = 0; j < coreGridSize; j++) {
           const x = (i - coreGridSize / 2 + 0.5) * coreSpacing;
@@ -2838,7 +2840,7 @@
 
       // Create circuit traces connecting cores
       const traces = [];
-      
+
       // Horizontal traces
       for (let j = 0; j < coreGridSize; j++) {
         for (let i = 0; i < coreGridSize - 1; i++) {
@@ -2879,7 +2881,7 @@
       const pins = [];
       const pinCount = 12;
       const pinLength = 30;
-      
+
       for (let i = 0; i < pinCount; i++) {
         // Top pins
         pins.push({
@@ -2921,7 +2923,7 @@
 
       // Interactive chip controls
       const chipContainer = document.querySelector('.neural-network-3d');
-      
+
       chipContainer.addEventListener('mousedown', (e) => {
         isChipDragging = true;
         chipStartX = e.clientX;
@@ -3008,7 +3010,7 @@
         ctx.lineWidth = 3;
         ctx.shadowBlur = 20;
         ctx.shadowColor = 'rgba(102, 126, 234, 0.5)';
-        
+
         ctx.beginPath();
         ctx.moveTo(projectedCorners[0].x, projectedCorners[0].y);
         for (let i = 1; i < projectedCorners.length; i++) {
@@ -3043,7 +3045,7 @@
         // Draw circuit traces with data flow
         traces.forEach(trace => {
           const projected = trace.project(totalRotationX, totalRotationY);
-          
+
           // Base trace line
           ctx.strokeStyle = 'rgba(102, 126, 234, 0.3)';
           ctx.lineWidth = 2;
@@ -3086,7 +3088,7 @@
           ctx.fill();
 
           // Core body with heat map
-          const heatColor = core.heat > 0.5 ? 
+          const heatColor = core.heat > 0.5 ?
             `rgba(${100 + core.heat * 155}, ${126 - core.heat * 50}, 234, ${activity})` :
             `rgba(102, 126, 234, ${activity})`;
 
@@ -3119,7 +3121,7 @@
               const y1 = pos.y + Math.sin(angle) * size * 0.5;
               const x2 = pos.x + Math.cos(angle) * size * 1.3;
               const y2 = pos.y + Math.sin(angle) * size * 1.3;
-              
+
               ctx.beginPath();
               ctx.moveTo(x1, y1);
               ctx.lineTo(x2, y2);
@@ -3133,7 +3135,7 @@
         ctx.font = 'bold 48px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        
+
         ctx.shadowBlur = 30;
         ctx.shadowColor = 'rgba(102, 126, 234, 0.8)';
         ctx.fillStyle = `rgba(255, 255, 255, ${centerPulse})`;
@@ -3296,7 +3298,7 @@
 
     // Element SDK Configuration
     const defaultConfig = {
-      developer_name: "Alex Martínez",
+      developer_name: "David Jesua",
       job_title: "Full Stack Developer",
       bio_text: "Desarrollador apasionado con 5+ años de experiencia creando aplicaciones web modernas y escalables. Especializado en JavaScript, React y Node.js.",
       experience_title: "Experiencia",
@@ -3459,5 +3461,7 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a08a0f0d51c12d0',t:'MTc2MzQ4MTA4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9a08a0f0d51c12d0',t:'MTc2MzQ4MTA4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
 </html>
